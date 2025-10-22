@@ -1,0 +1,39 @@
+file(REMOVE_RECURSE
+  "CMakeFiles/LatControllerTest.dir/common/configs/vehicle_config_helper.cpp.o"
+  "CMakeFiles/LatControllerTest.dir/common/configs/vehicle_config_helper.cpp.o.d"
+  "CMakeFiles/LatControllerTest.dir/common/filters/digital_filter.cpp.o"
+  "CMakeFiles/LatControllerTest.dir/common/filters/digital_filter.cpp.o.d"
+  "CMakeFiles/LatControllerTest.dir/common/filters/digital_filter_coefficients.cpp.o"
+  "CMakeFiles/LatControllerTest.dir/common/filters/digital_filter_coefficients.cpp.o.d"
+  "CMakeFiles/LatControllerTest.dir/common/filters/math.cpp.o"
+  "CMakeFiles/LatControllerTest.dir/common/filters/math.cpp.o.d"
+  "CMakeFiles/LatControllerTest.dir/common/filters/mean_filter.cpp.o"
+  "CMakeFiles/LatControllerTest.dir/common/filters/mean_filter.cpp.o.d"
+  "CMakeFiles/LatControllerTest.dir/common/math/bspline_1d.cpp.o"
+  "CMakeFiles/LatControllerTest.dir/common/math/bspline_1d.cpp.o.d"
+  "CMakeFiles/LatControllerTest.dir/common/math/interpolation_1d.cpp.o"
+  "CMakeFiles/LatControllerTest.dir/common/math/interpolation_1d.cpp.o.d"
+  "CMakeFiles/LatControllerTest.dir/common/math/interpolation_2d.cpp.o"
+  "CMakeFiles/LatControllerTest.dir/common/math/interpolation_2d.cpp.o.d"
+  "CMakeFiles/LatControllerTest.dir/common/math/linear_quadratic_regulator.cpp.o"
+  "CMakeFiles/LatControllerTest.dir/common/math/linear_quadratic_regulator.cpp.o.d"
+  "CMakeFiles/LatControllerTest.dir/common/vehicle_state/vehicle_state_provider.cpp.o"
+  "CMakeFiles/LatControllerTest.dir/common/vehicle_state/vehicle_state_provider.cpp.o.d"
+  "CMakeFiles/LatControllerTest.dir/control_component/controller_task_base/common/leadlag_controller.cpp.o"
+  "CMakeFiles/LatControllerTest.dir/control_component/controller_task_base/common/leadlag_controller.cpp.o.d"
+  "CMakeFiles/LatControllerTest.dir/control_component/controller_task_base/common/trajectory_analyzer.cpp.o"
+  "CMakeFiles/LatControllerTest.dir/control_component/controller_task_base/common/trajectory_analyzer.cpp.o.d"
+  "CMakeFiles/LatControllerTest.dir/controller/lat_based_lqr_controller/connect_lat_controller_test.cpp.o"
+  "CMakeFiles/LatControllerTest.dir/controller/lat_based_lqr_controller/connect_lat_controller_test.cpp.o.d"
+  "CMakeFiles/LatControllerTest.dir/controller/lat_based_lqr_controller/lat_controller_test.cpp.o"
+  "CMakeFiles/LatControllerTest.dir/controller/lat_based_lqr_controller/lat_controller_test.cpp.o.d"
+  "CMakeFiles/LatControllerTest.dir/controller/lat_based_lqr_controller/main.cpp.o"
+  "CMakeFiles/LatControllerTest.dir/controller/lat_based_lqr_controller/main.cpp.o.d"
+  "bin/LatControllerTest"
+  "bin/LatControllerTest.pdb"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang CXX)
+  include(CMakeFiles/LatControllerTest.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()
