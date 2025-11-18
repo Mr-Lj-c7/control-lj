@@ -7,6 +7,7 @@
 #include <memory>   
 #include <tuple>   
 #include <utility>  
+#include "common/configs/config_gflags.h"
 
 namespace control {
 namespace common {

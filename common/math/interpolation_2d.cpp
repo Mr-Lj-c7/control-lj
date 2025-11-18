@@ -8,28 +8,40 @@ bool Interpolation2D::CheckMap() const {
     double keysize = xyz_.begin()->second.size();  // yz_table大小
     auto itr_ = xyz_.begin();
     for ( ; itr_ != xyz_.end(); itr_++) {
-        if (keysize != itr_->second.size()) {
-            std::cerr << "calibration map dimension is not equal" 
-                    << "\n" << "first value: " << keysize
-                    << "\n" << "second value: " << itr_->second.size()
-                    << std::endl;
+        if (FLAGS_use_calibration_dimension_equal_check) {
+            if (keysize != itr_->second.size()) {  // 本测试数据集的维度不相等
+                std::cerr << "[Interpolation2D]:calibration map dimension is not equal" 
+                        << "\n" << "first value: " << keysize
+                        << "\n" << "second value: " << itr_->second.size()
+                        << std::endl;
+                return false;
+            }
         }
+        
         // 标定表中加速度包含正负值
         int pos_cout = 0;
         int nag_cout = 0;
         auto inner_itr_ = itr_->second.begin();
         for ( ; inner_itr_ != itr_->second.end(); inner_itr_++) {
-            if (inner_itr_->first > 0) pos_cout++;
-            else if (inner_itr_->first < 0) nag_cout++;
+            if (inner_itr_->first > 0) {
+                pos_cout++;
+            } else if (inner_itr_->first < 0) {
+                nag_cout++;
+            }
         }
+        // if (itr_->first == 1.8) {
+        //     std::cout << "speed: " << itr_->first << std::endl;
+        //     for (const auto& entry : itr_->second) {
+        //         std::cerr << "  acceleration: " << entry.first << ", command: " << entry.second << std::endl;
+        //     }
+        // }
+
         if (pos_cout == 0) {
-            std::cerr << "calibration map does not contain positive values"
-                    << std::endl;
+            std::cerr << "[Interpolation2D]:calibration map does not contain positive values\n";
             return false;
         }
         if (nag_cout == 0) {
-            std::cerr << "calibration map does not contain negative values"
-                    << std::endl;
+            std::cerr << "[Interpolation2D]:calibration map does not contain negative values\n";
             return false;
         }
     }
@@ -38,7 +50,7 @@ bool Interpolation2D::CheckMap() const {
 
 bool Interpolation2D::Init(const DataType &xyz) { 
     if (xyz.empty()) {
-        std::cerr << "calibration map is empty" << std::endl;
+        std::cerr << "[Interpolation2D]:calibration map is empty" << std::endl;
         return false;
     }
     // 按顺序写入键值 speed acceleration command
@@ -46,7 +58,7 @@ bool Interpolation2D::Init(const DataType &xyz) {
         xyz_[std::get<0>(item)][std::get<1>(item)] = std::get<2>(item);
     }
     if (!CheckMap()) {
-        std::cerr << "calibration map is not valid" << std::endl;
+        std::cerr << "[Interpolation2D]:calibration map is not valid" << std::endl;
         return false;
     }
     return true;
@@ -76,7 +88,8 @@ double Interpolation2D::InterpolateYz(
     const std::map<double, double> &yz_table, 
     const double &y) const {
         if (yz_table.empty()) {
-            std::cerr << "Unable to interpolateYz because yz_table is empty" << std::endl;
+            std::cerr << "[Interpolation2D]:Unable to interpolateYz because yz_table is empty" 
+              << std::endl;
             return y;
         }
         // 边界处理

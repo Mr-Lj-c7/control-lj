@@ -8,6 +8,7 @@ using PlanningTrajectoryPb = control::common_msg::ADCTrajectory;
 using control::common::VehicleStateProvider;
 #define STATUS nullptr
 #define relativate_time_ 0
+#define LOG_DEBUG
 
 namespace control{
 class ConnectLonControllerTest : public LonControllerTest {
@@ -50,7 +51,7 @@ protected:
     double tolerance_2 = 2e-2;
     double now_timestamp_ = 0.0;
 
-    std::shared_ptr<DependencyInjector> injector_;
+    // std::shared_ptr<DependencyInjector> injector_;
 
     const char data_path[100] = "../../controller/lon_based_pid_controller/longitudinal_controller_test/";
 };

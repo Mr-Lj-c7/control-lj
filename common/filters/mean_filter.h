@@ -13,41 +13,30 @@
 #include <stdexcept>
 #include <cassert>
 
-/**
- * @namespace apollo::common
- * @brief The apollo::common namespace contains the code of the common module.
- */
 namespace control {
 namespace common {
 
 /**
- * @class MeanFilter
- * @brief The MeanFilter class is used to smoothen a series of noisy numbers,
- * such as sensor data or the output of a function that we wish to be smoother.
- *
- * This is achieved by keeping track of the last k measurements
- * (where k is the window size), and returning the average of all but the
- * minimum and maximum measurements, which are likely to be outliers.
+ * @class 均值滤波器 MeanFilter
+ * @brief 
+    MeanFilter类用于平滑一系列有噪声的数字，例如传感器数据或我们希望更平滑的函数输出。
+    这是通过跟踪最后k个测量值（其中k是窗口大小），
+    并返回除最小和最大测量值之外的所有测量值的平均值来实现的，这些测量值可能是异常值。
  */
 class MeanFilter {
  public:
   /**
-   * @brief Initializes a MeanFilter with a given window size.
-   * @param window_size The window size of the MeanFilter.
-   * Older measurements are discarded.
+   * @brief 初始化滤波器，旧的测量值将被丢弃
+   * @param window_size 均值滤波器窗口大小
    */
   explicit MeanFilter(const std::uint_fast8_t window_size);
-  /**
-   * @brief Default constructor; defers initialization.
-   */
+
   MeanFilter() = default;
-  /**
-   * @brief Default destructor.
-   */
+
   ~MeanFilter() = default;
   /**
-   * @brief Processes a new measurement in amortized constant time.
-   * @param measurement The measurement to be processed by the filter.
+   * @brief 更新测量值并计算滤波后的值
+   * @param measurement 测量值
    */
   double Update(const double measurement);
 

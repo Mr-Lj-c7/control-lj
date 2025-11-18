@@ -10,9 +10,23 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS ON)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
+# debug / release
+if(NOT CMAKE_BUILD_TYPE)
+    set(CMAKE_BUILD_TYPE "Release") 
+endif()
+
+if(CMAKE_BUILD_TYPE STREQUAL "Debug")
+   set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -g -O0 -Wall -Wextra")
+   message(STATUS "Build type: Debug")
+else()
+    set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -O3")
+    message(STATUS "Build type: Release")
+endif()
+
+
 option(CHECK "Check the relevant dependency libraries " TRUE)
 
-# Eigen3
+# Eigen3.3.7, Opencv4.2.0
 find_package(Eigen3 REQUIRED)
 find_package(OpenCV  REQUIRED)
 
@@ -63,6 +77,7 @@ include_directories(${PROJECT_NAME}
    ${CMAKE_CONTROL_COMPONENT_PATH}/config
    ${CMAKE_CONTROLLER_PATH}/lat_based_lqr_controller
    ${CMAKE_CONTROLLER_PATH}/lon_based_pid_controller
+   ${CMAKE_CONTROLLER_PATH}/lon_based_pid_controller/util
    ${THIRD_LIB_DIR}/json/include
    ${EIGEN_INCLUDE_DIR}
    ${OpenCV_INCLUDE_DIRS}
@@ -77,12 +92,15 @@ set(COMMON_CPP_FILES
    common/filters/digital_filter_coefficients.cpp
    common/math/interpolation_2d.cpp
    common/math/bspline_1d.cpp
+   common/math/vec2d.cpp
    common/math/interpolation_1d.cpp
    common/math/linear_quadratic_regulator.cpp
    common/vehicle_state/vehicle_state_provider.cpp
    common/configs/vehicle_config_helper.cpp
+   common/configs/config_gflags.cpp
    control_component/controller_task_base/common/trajectory_analyzer.cpp
    control_component/controller_task_base/common/leadlag_controller.cpp
+   control_component/controller_task_base/common/pid_controller.cpp
 )
 
 set(LATCONTROLLERTEST_SOURCES
@@ -94,6 +112,7 @@ set(LATCONTROLLERTEST_SOURCES
 
 set(LONCONTROLLERTEST_SOURCES
    ${COMMON_CPP_FILES}
+   controller/lon_based_pid_controller/util/check_pit.cpp
    controller/lon_based_pid_controller/lon_controller_test.cpp
    controller/lon_based_pid_controller/connect_lon_controller_test.cpp
    controller/lon_based_pid_controller/main.cpp
@@ -102,6 +121,12 @@ set(LONCONTROLLERTEST_SOURCES
 # add_executable
 add_executable(LatControllerTest ${LATCONTROLLERTEST_SOURCES})
 add_executable(LonControllerTest ${LONCONTROLLERTEST_SOURCES})
+
+# debug 调试定义
+if(CMAKE_BUILD_TYPE STREQUAL "Debug")
+   target_compile_definitions(LatControllerTest PRIVATE DEBUG)
+   target_compile_definitions(LonControllerTest PRIVATE DEBUG)
+endif()
 
 # target_link_libraries
 if(LINUX)

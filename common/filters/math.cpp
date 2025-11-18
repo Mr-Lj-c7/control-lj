@@ -19,7 +19,7 @@ double slerp(const double a0, const double t0,
     const double a1, const double t1,
     const double t) {
   if (std::abs(t1 - t0) <= kMathEpsilon) {
-    std::cerr << "input time difference is too small" << std::endl;
+    std::cerr << "[math]:input time difference is too small" << std::endl;
     return NormalizeAngle(a0);
   }
   const double a0_n = NormalizeAngle(a0);

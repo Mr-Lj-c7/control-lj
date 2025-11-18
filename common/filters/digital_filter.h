@@ -6,6 +6,7 @@
 #include <vector>
 #include <string>
 #include <iostream>
+#include <cmath>
 
 namespace control {
 namespace common {
@@ -14,20 +15,21 @@ class DigitalFilter
 {
 public:
     DigitalFilter(/* args */) = default;
-    DigitalFilter(std::vector<double> &denomintors,
-                std::vector<double> &numerators);
+
+    DigitalFilter(const std::vector<double> &denomintors,
+                  const std::vector<double> &numerators);
     ~DigitalFilter() = default;
 
     // IIR滤波器,低通二阶,return y[0]
     double Filter(const double x_insert);
 
     // 设置输出（分母）系数
-    void SetDenominators(std::vector<double> &denominators);
+    void SetDenominators(const std::vector<double> &denominators);
     // 设置输入（分子）系数
-    void SetNumerators(std::vector<double> &numerators);
+    void SetNumerators(const std::vector<double> &numerators);
 
-    void SetCoefficients(std::vector<double> &denominators,
-                        std::vector<double> &numerators);
+    void SetCoefficients(const std::vector<double> &denominators,
+                         const std::vector<double> &numerators);
 
     // 设置死区
     void SetDeadZone(const double dead_zone);

@@ -96,27 +96,27 @@ PlanningTrajectoryPb ConnectLatControllerTest::LoadPlanningTrajectoryPb(
         uint32_t points_ = root_3["trajectory_point"].size();
         // std::cout << "Number of trajectory points: " << points_ << std::endl;
         planning_trajectory_pb.trajectory_point.resize(points_);  // 分配内存
-        for (size_t i = 0; i < points_; ++i) {
+        for (Json::ArrayIndex i = 0; i < points_; ++i) {
             planning_trajectory_pb.trajectory_point[i].v = 
-                root_3["trajectory_point"][static_cast<int>(i)]["v"].asDouble(); 
+                root_3["trajectory_point"][i]["v"].asDouble(); 
             planning_trajectory_pb.trajectory_point[i].a = 
-                root_3["trajectory_point"][static_cast<int>(i)]["a"].asDouble();  
+                root_3["trajectory_point"][i]["a"].asDouble();  
             planning_trajectory_pb.trajectory_point[i].relative_time = 
-                root_3["trajectory_point"][static_cast<int>(i)]["relative_time"].asDouble();
+                root_3["trajectory_point"][i]["relative_time"].asDouble();
             planning_trajectory_pb.trajectory_point[i].path_point.x = 
-                root_3["trajectory_point"][static_cast<int>(i)]["path_point"]["x"].asDouble();
+                root_3["trajectory_point"][i]["path_point"]["x"].asDouble();
             planning_trajectory_pb.trajectory_point[i].path_point.y = 
-                root_3["trajectory_point"][static_cast<int>(i)]["path_point"]["y"].asDouble();
+                root_3["trajectory_point"][i]["path_point"]["y"].asDouble();
             planning_trajectory_pb.trajectory_point[i].path_point.z = 
-                root_3["trajectory_point"][static_cast<int>(i)]["path_point"]["z"].asDouble();
+                root_3["trajectory_point"][i]["path_point"]["z"].asDouble();
             planning_trajectory_pb.trajectory_point[i].path_point.theta = 
-                root_3["trajectory_point"][static_cast<int>(i)]["path_point"]["theta"].asDouble();
+                root_3["trajectory_point"][i]["path_point"]["theta"].asDouble();
             planning_trajectory_pb.trajectory_point[i].path_point.kappa = 
-                root_3["trajectory_point"][static_cast<int>(i)]["path_point"]["kappa"].asDouble();
+                root_3["trajectory_point"][i]["path_point"]["kappa"].asDouble();
             planning_trajectory_pb.trajectory_point[i].path_point.s = 
-                root_3["trajectory_point"][static_cast<int>(i)]["path_point"]["s"].asDouble();
+                root_3["trajectory_point"][i]["path_point"]["s"].asDouble();
             planning_trajectory_pb.trajectory_point[i].path_point.dkappa = 
-                root_3["trajectory_point"][static_cast<int>(i)]["path_point"]["dkappa"].asDouble();
+                root_3["trajectory_point"][i]["path_point"]["dkappa"].asDouble();
         }  
     }
     std::cout << "[planning_trajectory_pb.trajectory_point.size]:" 
@@ -269,42 +269,53 @@ char* ConnectLatControllerTest::Run() {
     auto localiation_file = std::string(data_path_) + "1_localization.json";
     auto chassis_file = std::string(data_path_) + "1_chassis.json";
     auto planning_trajectory_file = std::string(data_path_) + "1_planning.json";
+
     auto localization_pb = LoadLocalizationPb(localiation_file);
     auto chassis_pb = LoadChassisPb(chassis_file);
-
-    auto vehicle_state = injector_->vehicle_state();
-    vehicle_state->Update(localization_pb, chassis_pb);
-    SetInjector(injector_);
-
     auto planning_trajectory_pb = LoadPlanningTrajectoryPb(
                             planning_trajectory_file);
-    control::TrajectoryAnalyzer trajectory_analyzer(
-        &planning_trajectory_pb);
 
-    control::common_msg::SimpleLateralDebug debug;
-    ComputeLateralErrors(
-        vehicle_state->x(), vehicle_state->y(), vehicle_state->heading(),
-        vehicle_state->linear_velocity(), vehicle_state->angular_velocity(),
-        vehicle_state->linear_acceleration(), trajectory_analyzer,
-        &debug, &chassis_pb);
+    #ifdef LOG_DEBUG
+        if (Init(injector_)) {
+            control::common_msg::ControlCommand control_command_;
+            ComputeControlCommand(
+                &localization_pb, &chassis_pb, &planning_trajectory_pb,
+                &control_command_);
+        } else {
+            std::cerr << "LatControllerTest init failed!" << std::endl;
+        }
+    #else
+        auto vehicle_state = injector_->vehicle_state();
+        vehicle_state->Update(localization_pb, chassis_pb);
+        // SetInjector(injector_);
+        control::TrajectoryAnalyzer trajectory_analyzer(
+            &planning_trajectory_pb);
 
-    // 检核结果
-    bool T_1 = CustomExpectedResultWithMessage("HeadingError", debug.heading_error,
-                                               theta_error_expected, tolerance);
-    bool T_2 = CustomExpectedResultWithMessage("HeadingErrorRate", debug.heading_error_rate,
-                                               theta_error_dot_expected, tolerance);
-    bool T_3 = CustomExpectedResultWithMessage("LateralError", debug.lateral_error,
-                                               d_error_expected, tolerance);
-    bool T_4 = CustomExpectedResultWithMessage("LateralErrorRate", debug.lateral_error_rate,
-                                               d_error_dot_expected, tolerance);
-    bool T_5 = CustomExpectedResultWithMessage("RefError", debug.ref_heading,
-                                               matched_theta_expected, tolerance);
-    bool T_6 = CustomExpectedResultWithMessage("Curvature", debug.curvature,
-                                               matched_kappa_expected, tolerance);
+        control::common_msg::SimpleLateralDebug debug;
+        ComputeLateralErrors(
+            vehicle_state->x(), vehicle_state->y(), vehicle_state->heading(),
+            vehicle_state->linear_velocity(), vehicle_state->angular_velocity(),
+            vehicle_state->linear_acceleration(), trajectory_analyzer,
+            &debug, &chassis_pb);
+        // 检核结果
+        bool T_1 = CustomExpectedResultWithMessage("HeadingError", debug.heading_error,
+            theta_error_expected, tolerance);
+        bool T_2 = CustomExpectedResultWithMessage("HeadingErrorRate", debug.heading_error_rate,
+                theta_error_dot_expected, tolerance);
+        bool T_3 = CustomExpectedResultWithMessage("LateralError", debug.lateral_error,
+                d_error_expected, tolerance);
+        bool T_4 = CustomExpectedResultWithMessage("LateralErrorRate", debug.lateral_error_rate,
+                d_error_dot_expected, tolerance);
+        bool T_5 = CustomExpectedResultWithMessage("RefError", debug.ref_heading,
+                matched_theta_expected, tolerance);
+        bool T_6 = CustomExpectedResultWithMessage("Curvature", debug.curvature,
+                matched_kappa_expected, tolerance);
 
-    // 输出结果
-    bool all_pass = T_1 && T_2 && T_3 && T_4 && T_5 && T_6;
-    std::cout << "All tests passed: " << (all_pass ? "YES" : "NO") << std::endl;
+        // 输出结果
+        bool all_pass = T_1 && T_2 && T_3 && T_4 && T_5 && T_6;
+        std::cout << "All tests passed: " << (all_pass ? "YES" : "NO") << std::endl;
+    #endif
+
     return STATUS;
 }
 }  // namespace control

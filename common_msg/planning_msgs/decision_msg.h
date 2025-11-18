@@ -201,7 +201,8 @@ typedef struct MAIN_DECISION {
     MainMissionComplete mission_complete;
     MainNotReady not_ready;
     MainParking parking;
-  } task;
+  } Task;
+  Task task;
 } MainDecision;
 
 typedef struct DECISION_RESULT {

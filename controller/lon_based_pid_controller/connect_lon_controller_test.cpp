@@ -211,30 +211,29 @@ PlanningTrajectoryPb ConnectLonControllerTest::LoadPlanningTrajectoryPb(
     if (root_3.isMember("trajectory_point"))
     {
         uint32_t points_ = root_3["trajectory_point"].size();
-        planning_trajectory_pb.trajectory_point.resize(points_);  // 分配内存
-        for (size_t i = 0; i < points_; ++i)
-        {
+        planning_trajectory_pb.trajectory_point.resize(points_);  // 分配内存 
+        for (Json::ArrayIndex i = 0; i < points_; ++i) {
             planning_trajectory_pb.trajectory_point[i].v = 
-              root_3["trajectory_point"][static_cast<int>(i)]["v"].asDouble(); 
+              root_3["trajectory_point"][i]["v"].asDouble(); 
             planning_trajectory_pb.trajectory_point[i].a = 
-              root_3["trajectory_point"][static_cast<int>(i)]["a"].asDouble();  
+              root_3["trajectory_point"][i]["a"].asDouble();  
             planning_trajectory_pb.trajectory_point[i].relative_time = 
-              root_3["trajectory_point"][static_cast<int>(i)]["relative_time"].asDouble();
+              root_3["trajectory_point"][i]["relative_time"].asDouble();
             planning_trajectory_pb.trajectory_point[i].path_point.x = 
-              root_3["trajectory_point"][static_cast<int>(i)]["path_point"]["x"].asDouble();
+              root_3["trajectory_point"][i]["path_point"]["x"].asDouble();
             planning_trajectory_pb.trajectory_point[i].path_point.y = 
-              root_3["trajectory_point"][static_cast<int>(i)]["path_point"]["y"].asDouble();
+              root_3["trajectory_point"][i]["path_point"]["y"].asDouble();
             planning_trajectory_pb.trajectory_point[i].path_point.z = 
-              root_3["trajectory_point"][static_cast<int>(i)]["path_point"]["z"].asDouble();
+              root_3["trajectory_point"][i]["path_point"]["z"].asDouble();
             planning_trajectory_pb.trajectory_point[i].path_point.theta = 
-              root_3["trajectory_point"][static_cast<int>(i)]["path_point"]["theta"].asDouble();
+              root_3["trajectory_point"][i]["path_point"]["theta"].asDouble();
             planning_trajectory_pb.trajectory_point[i].path_point.kappa = 
-              root_3["trajectory_point"][static_cast<int>(i)]["path_point"]["kappa"].asDouble();
+              root_3["trajectory_point"][i]["path_point"]["kappa"].asDouble();
             planning_trajectory_pb.trajectory_point[i].path_point.s = 
-              root_3["trajectory_point"][static_cast<int>(i)]["path_point"]["s"].asDouble();
+              root_3["trajectory_point"][i]["path_point"]["s"].asDouble();
             planning_trajectory_pb.trajectory_point[i].path_point.dkappa = 
-              root_3["trajectory_point"][static_cast<int>(i)]["path_point"]["dkappa"].asDouble();
-        }  
+              root_3["trajectory_point"][i]["path_point"]["dkappa"].asDouble();
+        }
     }
     std::cout<<"planning_trajectory_pb.trajectory_point.size():" 
              << planning_trajectory_pb.trajectory_point.size() << std::endl;
@@ -270,50 +269,59 @@ char* ConnectLonControllerTest::Run() {
     auto planning_trajectory_file = std::string(data_path) + "1_planning.json";
     auto localization_pb = LoadLocalizationPb(localiation_file);
     auto chassis_pb = LoadChassisPb(chassis_file);
-
-    auto vehicle_state = injector_->vehicle_state();
-    vehicle_state->Update(localization_pb, chassis_pb);
-    SetInjector(injector_);
-
     auto planning_trajectory_pb = LoadPlanningTrajectoryPb(
                             planning_trajectory_file);
-    planning_trajectory_pb.header.timestamp_sec = now_timestamp_;
-    control::TrajectoryAnalyzer trajectory_analyzer(
-        &planning_trajectory_pb);
+    #ifdef LOG_DEBUG
+        if (Init(injector_)){
+            control::common_msg::ControlCommand cmd;
+            ComputeControlCommand(&localization_pb,
+                                  &chassis_pb,
+                                  &planning_trajectory_pb,
+                                  &cmd);
+            std::cout << "Control Command Throttle: " 
+                      << cmd.throttle << ", Brake: " 
+                      << cmd.brake << ", Acceleration: " 
+                      << cmd.acceleration << "\n";
+        }
+    #else
+        auto vehicle_state = injector_->vehicle_state();
+        vehicle_state->Update(localization_pb, chassis_pb);
+        // SetInjector(injector_);
+        planning_trajectory_pb.header.timestamp_sec = now_timestamp_;
+        control::TrajectoryAnalyzer trajectory_analyzer(
+            &planning_trajectory_pb);
+        double ts_ = lon_based_pidcontroller_conf_.ts;
+        double preview_time = lon_based_pidcontroller_conf_.preview_window * ts_;
+        std::cout<<"preview_time:" << preview_time << std::endl;
+        control::common_msg::SimpleLongitudinalDebug debug;
+        ComputeLongitudinalErrors(
+            &trajectory_analyzer,
+            preview_time,
+            ts_,
+            &debug);
+        // 检核结果
+        bool T_1 = CustomExpectedResultWithMessage("StationError", debug.station_error,
+                                                station_error_expected, tolerance_1);
+        bool T_2 = CustomExpectedResultWithMessage("SpeedError", debug.speed_error,
+                                                speed_error_expected, tolerance_1);
+        bool T_3 = CustomExpectedResultWithMessage("PreviewStationError", debug.preview_station_error,
+                                                preview_station_error_expected, tolerance_2);
+        bool T_4 = CustomExpectedResultWithMessage("PreviewSpeedReference", debug.preview_speed_reference,
+                                                preview_speed_reference_expected, tolerance_1);
+        bool T_5 = CustomExpectedResultWithMessage("PreviewSpeedError", debug.preview_speed_error,
+                                                preview_speed_error_expected, tolerance_1);
+        bool T_6 = CustomExpectedResultWithMessage("PreviewAccelerationReference", 
+                                                    debug.preview_acceleration_reference,
+                                                    preview_acceleration_reference_expected, tolerance_1);
+        bool T_7 = CustomExpectedResultWithMessage("StationReference", debug.station_reference,
+                                                station_reference_expected, tolerance_1);
+        bool T_8 = CustomExpectedResultWithMessage("SpeedReference", debug.speed_reference,
+                                                speed_reference_expected, tolerance_1);
+        // 输出结果
+        bool all_pass = T_1 && T_2 && T_3 && T_4 && T_5 && T_6;
+        std::cout << "All tests passed: " << (all_pass ? "YES" : "NO") << std::endl;
+    #endif
 
-    double ts_ = lon_based_pidcontroller_conf_.ts;
-    double preview_time = lon_based_pidcontroller_conf_.preview_window * ts_;
-    std::cout<<"preview_time:" << preview_time << std::endl;
-
-    control::common_msg::SimpleLongitudinalDebug debug;
-    ComputeLongitudinalErrors(
-        &trajectory_analyzer,
-        preview_time,
-        ts_,
-        &debug);
-
-    // 检核结果
-    bool T_1 = CustomExpectedResultWithMessage("StationError", debug.station_error,
-                                               station_error_expected, tolerance_1);
-    bool T_2 = CustomExpectedResultWithMessage("SpeedError", debug.speed_error,
-                                               speed_error_expected, tolerance_1);
-    bool T_3 = CustomExpectedResultWithMessage("PreviewStationError", debug.preview_station_error,
-                                               preview_station_error_expected, tolerance_2);
-    bool T_4 = CustomExpectedResultWithMessage("PreviewSpeedReference", debug.preview_speed_reference,
-                                               preview_speed_reference_expected, tolerance_1);
-    bool T_5 = CustomExpectedResultWithMessage("PreviewSpeedError", debug.preview_speed_error,
-                                               preview_speed_error_expected, tolerance_1);
-    bool T_6 = CustomExpectedResultWithMessage("PreviewAccelerationReference", 
-                                                debug.preview_acceleration_reference,
-                                                preview_acceleration_reference_expected, tolerance_1);
-    bool T_7 = CustomExpectedResultWithMessage("StationReference", debug.station_reference,
-                                               station_reference_expected, tolerance_1);
-    bool T_8 = CustomExpectedResultWithMessage("SpeedReference", debug.speed_reference,
-                                               speed_reference_expected, tolerance_1);
-
-    // 输出结果
-    bool all_pass = T_1 && T_2 && T_3 && T_4 && T_5 && T_6;
-    std::cout << "All tests passed: " << (all_pass ? "YES" : "NO") << std::endl;
     return STATUS;
 }
 

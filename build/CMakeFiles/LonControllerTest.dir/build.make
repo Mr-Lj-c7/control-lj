@@ -153,10 +153,24 @@ CMakeFiles/LonControllerTest.dir/common/math/bspline_1d.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/LonControllerTest.dir/common/math/bspline_1d.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/user/ChangTing/Code/apollo_test/control-lj/common/math/bspline_1d.cpp -o CMakeFiles/LonControllerTest.dir/common/math/bspline_1d.cpp.s
 
+CMakeFiles/LonControllerTest.dir/common/math/vec2d.cpp.o: CMakeFiles/LonControllerTest.dir/flags.make
+CMakeFiles/LonControllerTest.dir/common/math/vec2d.cpp.o: /home/user/ChangTing/Code/apollo_test/control-lj/common/math/vec2d.cpp
+CMakeFiles/LonControllerTest.dir/common/math/vec2d.cpp.o: CMakeFiles/LonControllerTest.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/user/ChangTing/Code/apollo_test/control-lj/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/LonControllerTest.dir/common/math/vec2d.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/LonControllerTest.dir/common/math/vec2d.cpp.o -MF CMakeFiles/LonControllerTest.dir/common/math/vec2d.cpp.o.d -o CMakeFiles/LonControllerTest.dir/common/math/vec2d.cpp.o -c /home/user/ChangTing/Code/apollo_test/control-lj/common/math/vec2d.cpp
+
+CMakeFiles/LonControllerTest.dir/common/math/vec2d.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/LonControllerTest.dir/common/math/vec2d.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/user/ChangTing/Code/apollo_test/control-lj/common/math/vec2d.cpp > CMakeFiles/LonControllerTest.dir/common/math/vec2d.cpp.i
+
+CMakeFiles/LonControllerTest.dir/common/math/vec2d.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/LonControllerTest.dir/common/math/vec2d.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/user/ChangTing/Code/apollo_test/control-lj/common/math/vec2d.cpp -o CMakeFiles/LonControllerTest.dir/common/math/vec2d.cpp.s
+
 CMakeFiles/LonControllerTest.dir/common/math/interpolation_1d.cpp.o: CMakeFiles/LonControllerTest.dir/flags.make
 CMakeFiles/LonControllerTest.dir/common/math/interpolation_1d.cpp.o: /home/user/ChangTing/Code/apollo_test/control-lj/common/math/interpolation_1d.cpp
 CMakeFiles/LonControllerTest.dir/common/math/interpolation_1d.cpp.o: CMakeFiles/LonControllerTest.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/user/ChangTing/Code/apollo_test/control-lj/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/LonControllerTest.dir/common/math/interpolation_1d.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/user/ChangTing/Code/apollo_test/control-lj/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/LonControllerTest.dir/common/math/interpolation_1d.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/LonControllerTest.dir/common/math/interpolation_1d.cpp.o -MF CMakeFiles/LonControllerTest.dir/common/math/interpolation_1d.cpp.o.d -o CMakeFiles/LonControllerTest.dir/common/math/interpolation_1d.cpp.o -c /home/user/ChangTing/Code/apollo_test/control-lj/common/math/interpolation_1d.cpp
 
 CMakeFiles/LonControllerTest.dir/common/math/interpolation_1d.cpp.i: cmake_force
@@ -170,7 +184,7 @@ CMakeFiles/LonControllerTest.dir/common/math/interpolation_1d.cpp.s: cmake_force
 CMakeFiles/LonControllerTest.dir/common/math/linear_quadratic_regulator.cpp.o: CMakeFiles/LonControllerTest.dir/flags.make
 CMakeFiles/LonControllerTest.dir/common/math/linear_quadratic_regulator.cpp.o: /home/user/ChangTing/Code/apollo_test/control-lj/common/math/linear_quadratic_regulator.cpp
 CMakeFiles/LonControllerTest.dir/common/math/linear_quadratic_regulator.cpp.o: CMakeFiles/LonControllerTest.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/user/ChangTing/Code/apollo_test/control-lj/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/LonControllerTest.dir/common/math/linear_quadratic_regulator.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/user/ChangTing/Code/apollo_test/control-lj/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/LonControllerTest.dir/common/math/linear_quadratic_regulator.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/LonControllerTest.dir/common/math/linear_quadratic_regulator.cpp.o -MF CMakeFiles/LonControllerTest.dir/common/math/linear_quadratic_regulator.cpp.o.d -o CMakeFiles/LonControllerTest.dir/common/math/linear_quadratic_regulator.cpp.o -c /home/user/ChangTing/Code/apollo_test/control-lj/common/math/linear_quadratic_regulator.cpp
 
 CMakeFiles/LonControllerTest.dir/common/math/linear_quadratic_regulator.cpp.i: cmake_force
@@ -184,7 +198,7 @@ CMakeFiles/LonControllerTest.dir/common/math/linear_quadratic_regulator.cpp.s: c
 CMakeFiles/LonControllerTest.dir/common/vehicle_state/vehicle_state_provider.cpp.o: CMakeFiles/LonControllerTest.dir/flags.make
 CMakeFiles/LonControllerTest.dir/common/vehicle_state/vehicle_state_provider.cpp.o: /home/user/ChangTing/Code/apollo_test/control-lj/common/vehicle_state/vehicle_state_provider.cpp
 CMakeFiles/LonControllerTest.dir/common/vehicle_state/vehicle_state_provider.cpp.o: CMakeFiles/LonControllerTest.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/user/ChangTing/Code/apollo_test/control-lj/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/LonControllerTest.dir/common/vehicle_state/vehicle_state_provider.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/user/ChangTing/Code/apollo_test/control-lj/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/LonControllerTest.dir/common/vehicle_state/vehicle_state_provider.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/LonControllerTest.dir/common/vehicle_state/vehicle_state_provider.cpp.o -MF CMakeFiles/LonControllerTest.dir/common/vehicle_state/vehicle_state_provider.cpp.o.d -o CMakeFiles/LonControllerTest.dir/common/vehicle_state/vehicle_state_provider.cpp.o -c /home/user/ChangTing/Code/apollo_test/control-lj/common/vehicle_state/vehicle_state_provider.cpp
 
 CMakeFiles/LonControllerTest.dir/common/vehicle_state/vehicle_state_provider.cpp.i: cmake_force
@@ -198,7 +212,7 @@ CMakeFiles/LonControllerTest.dir/common/vehicle_state/vehicle_state_provider.cpp
 CMakeFiles/LonControllerTest.dir/common/configs/vehicle_config_helper.cpp.o: CMakeFiles/LonControllerTest.dir/flags.make
 CMakeFiles/LonControllerTest.dir/common/configs/vehicle_config_helper.cpp.o: /home/user/ChangTing/Code/apollo_test/control-lj/common/configs/vehicle_config_helper.cpp
 CMakeFiles/LonControllerTest.dir/common/configs/vehicle_config_helper.cpp.o: CMakeFiles/LonControllerTest.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/user/ChangTing/Code/apollo_test/control-lj/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/LonControllerTest.dir/common/configs/vehicle_config_helper.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/user/ChangTing/Code/apollo_test/control-lj/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/LonControllerTest.dir/common/configs/vehicle_config_helper.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/LonControllerTest.dir/common/configs/vehicle_config_helper.cpp.o -MF CMakeFiles/LonControllerTest.dir/common/configs/vehicle_config_helper.cpp.o.d -o CMakeFiles/LonControllerTest.dir/common/configs/vehicle_config_helper.cpp.o -c /home/user/ChangTing/Code/apollo_test/control-lj/common/configs/vehicle_config_helper.cpp
 
 CMakeFiles/LonControllerTest.dir/common/configs/vehicle_config_helper.cpp.i: cmake_force
@@ -209,10 +223,24 @@ CMakeFiles/LonControllerTest.dir/common/configs/vehicle_config_helper.cpp.s: cma
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/LonControllerTest.dir/common/configs/vehicle_config_helper.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/user/ChangTing/Code/apollo_test/control-lj/common/configs/vehicle_config_helper.cpp -o CMakeFiles/LonControllerTest.dir/common/configs/vehicle_config_helper.cpp.s
 
+CMakeFiles/LonControllerTest.dir/common/configs/config_gflags.cpp.o: CMakeFiles/LonControllerTest.dir/flags.make
+CMakeFiles/LonControllerTest.dir/common/configs/config_gflags.cpp.o: /home/user/ChangTing/Code/apollo_test/control-lj/common/configs/config_gflags.cpp
+CMakeFiles/LonControllerTest.dir/common/configs/config_gflags.cpp.o: CMakeFiles/LonControllerTest.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/user/ChangTing/Code/apollo_test/control-lj/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/LonControllerTest.dir/common/configs/config_gflags.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/LonControllerTest.dir/common/configs/config_gflags.cpp.o -MF CMakeFiles/LonControllerTest.dir/common/configs/config_gflags.cpp.o.d -o CMakeFiles/LonControllerTest.dir/common/configs/config_gflags.cpp.o -c /home/user/ChangTing/Code/apollo_test/control-lj/common/configs/config_gflags.cpp
+
+CMakeFiles/LonControllerTest.dir/common/configs/config_gflags.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/LonControllerTest.dir/common/configs/config_gflags.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/user/ChangTing/Code/apollo_test/control-lj/common/configs/config_gflags.cpp > CMakeFiles/LonControllerTest.dir/common/configs/config_gflags.cpp.i
+
+CMakeFiles/LonControllerTest.dir/common/configs/config_gflags.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/LonControllerTest.dir/common/configs/config_gflags.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/user/ChangTing/Code/apollo_test/control-lj/common/configs/config_gflags.cpp -o CMakeFiles/LonControllerTest.dir/common/configs/config_gflags.cpp.s
+
 CMakeFiles/LonControllerTest.dir/control_component/controller_task_base/common/trajectory_analyzer.cpp.o: CMakeFiles/LonControllerTest.dir/flags.make
 CMakeFiles/LonControllerTest.dir/control_component/controller_task_base/common/trajectory_analyzer.cpp.o: /home/user/ChangTing/Code/apollo_test/control-lj/control_component/controller_task_base/common/trajectory_analyzer.cpp
 CMakeFiles/LonControllerTest.dir/control_component/controller_task_base/common/trajectory_analyzer.cpp.o: CMakeFiles/LonControllerTest.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/user/ChangTing/Code/apollo_test/control-lj/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/LonControllerTest.dir/control_component/controller_task_base/common/trajectory_analyzer.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/user/ChangTing/Code/apollo_test/control-lj/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/LonControllerTest.dir/control_component/controller_task_base/common/trajectory_analyzer.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/LonControllerTest.dir/control_component/controller_task_base/common/trajectory_analyzer.cpp.o -MF CMakeFiles/LonControllerTest.dir/control_component/controller_task_base/common/trajectory_analyzer.cpp.o.d -o CMakeFiles/LonControllerTest.dir/control_component/controller_task_base/common/trajectory_analyzer.cpp.o -c /home/user/ChangTing/Code/apollo_test/control-lj/control_component/controller_task_base/common/trajectory_analyzer.cpp
 
 CMakeFiles/LonControllerTest.dir/control_component/controller_task_base/common/trajectory_analyzer.cpp.i: cmake_force
@@ -226,7 +254,7 @@ CMakeFiles/LonControllerTest.dir/control_component/controller_task_base/common/t
 CMakeFiles/LonControllerTest.dir/control_component/controller_task_base/common/leadlag_controller.cpp.o: CMakeFiles/LonControllerTest.dir/flags.make
 CMakeFiles/LonControllerTest.dir/control_component/controller_task_base/common/leadlag_controller.cpp.o: /home/user/ChangTing/Code/apollo_test/control-lj/control_component/controller_task_base/common/leadlag_controller.cpp
 CMakeFiles/LonControllerTest.dir/control_component/controller_task_base/common/leadlag_controller.cpp.o: CMakeFiles/LonControllerTest.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/user/ChangTing/Code/apollo_test/control-lj/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/LonControllerTest.dir/control_component/controller_task_base/common/leadlag_controller.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/user/ChangTing/Code/apollo_test/control-lj/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/LonControllerTest.dir/control_component/controller_task_base/common/leadlag_controller.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/LonControllerTest.dir/control_component/controller_task_base/common/leadlag_controller.cpp.o -MF CMakeFiles/LonControllerTest.dir/control_component/controller_task_base/common/leadlag_controller.cpp.o.d -o CMakeFiles/LonControllerTest.dir/control_component/controller_task_base/common/leadlag_controller.cpp.o -c /home/user/ChangTing/Code/apollo_test/control-lj/control_component/controller_task_base/common/leadlag_controller.cpp
 
 CMakeFiles/LonControllerTest.dir/control_component/controller_task_base/common/leadlag_controller.cpp.i: cmake_force
@@ -237,10 +265,38 @@ CMakeFiles/LonControllerTest.dir/control_component/controller_task_base/common/l
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/LonControllerTest.dir/control_component/controller_task_base/common/leadlag_controller.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/user/ChangTing/Code/apollo_test/control-lj/control_component/controller_task_base/common/leadlag_controller.cpp -o CMakeFiles/LonControllerTest.dir/control_component/controller_task_base/common/leadlag_controller.cpp.s
 
+CMakeFiles/LonControllerTest.dir/control_component/controller_task_base/common/pid_controller.cpp.o: CMakeFiles/LonControllerTest.dir/flags.make
+CMakeFiles/LonControllerTest.dir/control_component/controller_task_base/common/pid_controller.cpp.o: /home/user/ChangTing/Code/apollo_test/control-lj/control_component/controller_task_base/common/pid_controller.cpp
+CMakeFiles/LonControllerTest.dir/control_component/controller_task_base/common/pid_controller.cpp.o: CMakeFiles/LonControllerTest.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/user/ChangTing/Code/apollo_test/control-lj/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/LonControllerTest.dir/control_component/controller_task_base/common/pid_controller.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/LonControllerTest.dir/control_component/controller_task_base/common/pid_controller.cpp.o -MF CMakeFiles/LonControllerTest.dir/control_component/controller_task_base/common/pid_controller.cpp.o.d -o CMakeFiles/LonControllerTest.dir/control_component/controller_task_base/common/pid_controller.cpp.o -c /home/user/ChangTing/Code/apollo_test/control-lj/control_component/controller_task_base/common/pid_controller.cpp
+
+CMakeFiles/LonControllerTest.dir/control_component/controller_task_base/common/pid_controller.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/LonControllerTest.dir/control_component/controller_task_base/common/pid_controller.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/user/ChangTing/Code/apollo_test/control-lj/control_component/controller_task_base/common/pid_controller.cpp > CMakeFiles/LonControllerTest.dir/control_component/controller_task_base/common/pid_controller.cpp.i
+
+CMakeFiles/LonControllerTest.dir/control_component/controller_task_base/common/pid_controller.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/LonControllerTest.dir/control_component/controller_task_base/common/pid_controller.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/user/ChangTing/Code/apollo_test/control-lj/control_component/controller_task_base/common/pid_controller.cpp -o CMakeFiles/LonControllerTest.dir/control_component/controller_task_base/common/pid_controller.cpp.s
+
+CMakeFiles/LonControllerTest.dir/controller/lon_based_pid_controller/util/check_pit.cpp.o: CMakeFiles/LonControllerTest.dir/flags.make
+CMakeFiles/LonControllerTest.dir/controller/lon_based_pid_controller/util/check_pit.cpp.o: /home/user/ChangTing/Code/apollo_test/control-lj/controller/lon_based_pid_controller/util/check_pit.cpp
+CMakeFiles/LonControllerTest.dir/controller/lon_based_pid_controller/util/check_pit.cpp.o: CMakeFiles/LonControllerTest.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/user/ChangTing/Code/apollo_test/control-lj/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/LonControllerTest.dir/controller/lon_based_pid_controller/util/check_pit.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/LonControllerTest.dir/controller/lon_based_pid_controller/util/check_pit.cpp.o -MF CMakeFiles/LonControllerTest.dir/controller/lon_based_pid_controller/util/check_pit.cpp.o.d -o CMakeFiles/LonControllerTest.dir/controller/lon_based_pid_controller/util/check_pit.cpp.o -c /home/user/ChangTing/Code/apollo_test/control-lj/controller/lon_based_pid_controller/util/check_pit.cpp
+
+CMakeFiles/LonControllerTest.dir/controller/lon_based_pid_controller/util/check_pit.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/LonControllerTest.dir/controller/lon_based_pid_controller/util/check_pit.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/user/ChangTing/Code/apollo_test/control-lj/controller/lon_based_pid_controller/util/check_pit.cpp > CMakeFiles/LonControllerTest.dir/controller/lon_based_pid_controller/util/check_pit.cpp.i
+
+CMakeFiles/LonControllerTest.dir/controller/lon_based_pid_controller/util/check_pit.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/LonControllerTest.dir/controller/lon_based_pid_controller/util/check_pit.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/user/ChangTing/Code/apollo_test/control-lj/controller/lon_based_pid_controller/util/check_pit.cpp -o CMakeFiles/LonControllerTest.dir/controller/lon_based_pid_controller/util/check_pit.cpp.s
+
 CMakeFiles/LonControllerTest.dir/controller/lon_based_pid_controller/lon_controller_test.cpp.o: CMakeFiles/LonControllerTest.dir/flags.make
 CMakeFiles/LonControllerTest.dir/controller/lon_based_pid_controller/lon_controller_test.cpp.o: /home/user/ChangTing/Code/apollo_test/control-lj/controller/lon_based_pid_controller/lon_controller_test.cpp
 CMakeFiles/LonControllerTest.dir/controller/lon_based_pid_controller/lon_controller_test.cpp.o: CMakeFiles/LonControllerTest.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/user/ChangTing/Code/apollo_test/control-lj/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/LonControllerTest.dir/controller/lon_based_pid_controller/lon_controller_test.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/user/ChangTing/Code/apollo_test/control-lj/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/LonControllerTest.dir/controller/lon_based_pid_controller/lon_controller_test.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/LonControllerTest.dir/controller/lon_based_pid_controller/lon_controller_test.cpp.o -MF CMakeFiles/LonControllerTest.dir/controller/lon_based_pid_controller/lon_controller_test.cpp.o.d -o CMakeFiles/LonControllerTest.dir/controller/lon_based_pid_controller/lon_controller_test.cpp.o -c /home/user/ChangTing/Code/apollo_test/control-lj/controller/lon_based_pid_controller/lon_controller_test.cpp
 
 CMakeFiles/LonControllerTest.dir/controller/lon_based_pid_controller/lon_controller_test.cpp.i: cmake_force
@@ -254,7 +310,7 @@ CMakeFiles/LonControllerTest.dir/controller/lon_based_pid_controller/lon_control
 CMakeFiles/LonControllerTest.dir/controller/lon_based_pid_controller/connect_lon_controller_test.cpp.o: CMakeFiles/LonControllerTest.dir/flags.make
 CMakeFiles/LonControllerTest.dir/controller/lon_based_pid_controller/connect_lon_controller_test.cpp.o: /home/user/ChangTing/Code/apollo_test/control-lj/controller/lon_based_pid_controller/connect_lon_controller_test.cpp
 CMakeFiles/LonControllerTest.dir/controller/lon_based_pid_controller/connect_lon_controller_test.cpp.o: CMakeFiles/LonControllerTest.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/user/ChangTing/Code/apollo_test/control-lj/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/LonControllerTest.dir/controller/lon_based_pid_controller/connect_lon_controller_test.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/user/ChangTing/Code/apollo_test/control-lj/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/LonControllerTest.dir/controller/lon_based_pid_controller/connect_lon_controller_test.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/LonControllerTest.dir/controller/lon_based_pid_controller/connect_lon_controller_test.cpp.o -MF CMakeFiles/LonControllerTest.dir/controller/lon_based_pid_controller/connect_lon_controller_test.cpp.o.d -o CMakeFiles/LonControllerTest.dir/controller/lon_based_pid_controller/connect_lon_controller_test.cpp.o -c /home/user/ChangTing/Code/apollo_test/control-lj/controller/lon_based_pid_controller/connect_lon_controller_test.cpp
 
 CMakeFiles/LonControllerTest.dir/controller/lon_based_pid_controller/connect_lon_controller_test.cpp.i: cmake_force
@@ -268,7 +324,7 @@ CMakeFiles/LonControllerTest.dir/controller/lon_based_pid_controller/connect_lon
 CMakeFiles/LonControllerTest.dir/controller/lon_based_pid_controller/main.cpp.o: CMakeFiles/LonControllerTest.dir/flags.make
 CMakeFiles/LonControllerTest.dir/controller/lon_based_pid_controller/main.cpp.o: /home/user/ChangTing/Code/apollo_test/control-lj/controller/lon_based_pid_controller/main.cpp
 CMakeFiles/LonControllerTest.dir/controller/lon_based_pid_controller/main.cpp.o: CMakeFiles/LonControllerTest.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/user/ChangTing/Code/apollo_test/control-lj/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/LonControllerTest.dir/controller/lon_based_pid_controller/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/user/ChangTing/Code/apollo_test/control-lj/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/LonControllerTest.dir/controller/lon_based_pid_controller/main.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/LonControllerTest.dir/controller/lon_based_pid_controller/main.cpp.o -MF CMakeFiles/LonControllerTest.dir/controller/lon_based_pid_controller/main.cpp.o.d -o CMakeFiles/LonControllerTest.dir/controller/lon_based_pid_controller/main.cpp.o -c /home/user/ChangTing/Code/apollo_test/control-lj/controller/lon_based_pid_controller/main.cpp
 
 CMakeFiles/LonControllerTest.dir/controller/lon_based_pid_controller/main.cpp.i: cmake_force
@@ -287,12 +343,16 @@ LonControllerTest_OBJECTS = \
 "CMakeFiles/LonControllerTest.dir/common/filters/digital_filter_coefficients.cpp.o" \
 "CMakeFiles/LonControllerTest.dir/common/math/interpolation_2d.cpp.o" \
 "CMakeFiles/LonControllerTest.dir/common/math/bspline_1d.cpp.o" \
+"CMakeFiles/LonControllerTest.dir/common/math/vec2d.cpp.o" \
 "CMakeFiles/LonControllerTest.dir/common/math/interpolation_1d.cpp.o" \
 "CMakeFiles/LonControllerTest.dir/common/math/linear_quadratic_regulator.cpp.o" \
 "CMakeFiles/LonControllerTest.dir/common/vehicle_state/vehicle_state_provider.cpp.o" \
 "CMakeFiles/LonControllerTest.dir/common/configs/vehicle_config_helper.cpp.o" \
+"CMakeFiles/LonControllerTest.dir/common/configs/config_gflags.cpp.o" \
 "CMakeFiles/LonControllerTest.dir/control_component/controller_task_base/common/trajectory_analyzer.cpp.o" \
 "CMakeFiles/LonControllerTest.dir/control_component/controller_task_base/common/leadlag_controller.cpp.o" \
+"CMakeFiles/LonControllerTest.dir/control_component/controller_task_base/common/pid_controller.cpp.o" \
+"CMakeFiles/LonControllerTest.dir/controller/lon_based_pid_controller/util/check_pit.cpp.o" \
 "CMakeFiles/LonControllerTest.dir/controller/lon_based_pid_controller/lon_controller_test.cpp.o" \
 "CMakeFiles/LonControllerTest.dir/controller/lon_based_pid_controller/connect_lon_controller_test.cpp.o" \
 "CMakeFiles/LonControllerTest.dir/controller/lon_based_pid_controller/main.cpp.o"
@@ -306,12 +366,16 @@ bin/LonControllerTest: CMakeFiles/LonControllerTest.dir/common/filters/math.cpp.
 bin/LonControllerTest: CMakeFiles/LonControllerTest.dir/common/filters/digital_filter_coefficients.cpp.o
 bin/LonControllerTest: CMakeFiles/LonControllerTest.dir/common/math/interpolation_2d.cpp.o
 bin/LonControllerTest: CMakeFiles/LonControllerTest.dir/common/math/bspline_1d.cpp.o
+bin/LonControllerTest: CMakeFiles/LonControllerTest.dir/common/math/vec2d.cpp.o
 bin/LonControllerTest: CMakeFiles/LonControllerTest.dir/common/math/interpolation_1d.cpp.o
 bin/LonControllerTest: CMakeFiles/LonControllerTest.dir/common/math/linear_quadratic_regulator.cpp.o
 bin/LonControllerTest: CMakeFiles/LonControllerTest.dir/common/vehicle_state/vehicle_state_provider.cpp.o
 bin/LonControllerTest: CMakeFiles/LonControllerTest.dir/common/configs/vehicle_config_helper.cpp.o
+bin/LonControllerTest: CMakeFiles/LonControllerTest.dir/common/configs/config_gflags.cpp.o
 bin/LonControllerTest: CMakeFiles/LonControllerTest.dir/control_component/controller_task_base/common/trajectory_analyzer.cpp.o
 bin/LonControllerTest: CMakeFiles/LonControllerTest.dir/control_component/controller_task_base/common/leadlag_controller.cpp.o
+bin/LonControllerTest: CMakeFiles/LonControllerTest.dir/control_component/controller_task_base/common/pid_controller.cpp.o
+bin/LonControllerTest: CMakeFiles/LonControllerTest.dir/controller/lon_based_pid_controller/util/check_pit.cpp.o
 bin/LonControllerTest: CMakeFiles/LonControllerTest.dir/controller/lon_based_pid_controller/lon_controller_test.cpp.o
 bin/LonControllerTest: CMakeFiles/LonControllerTest.dir/controller/lon_based_pid_controller/connect_lon_controller_test.cpp.o
 bin/LonControllerTest: CMakeFiles/LonControllerTest.dir/controller/lon_based_pid_controller/main.cpp.o
@@ -366,7 +430,7 @@ bin/LonControllerTest: /usr/lib/x86_64-linux-gnu/libopencv_photo.so.4.2.0
 bin/LonControllerTest: /usr/lib/x86_64-linux-gnu/libopencv_imgproc.so.4.2.0
 bin/LonControllerTest: /usr/lib/x86_64-linux-gnu/libopencv_core.so.4.2.0
 bin/LonControllerTest: CMakeFiles/LonControllerTest.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/user/ChangTing/Code/apollo_test/control-lj/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Linking CXX executable bin/LonControllerTest"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/user/ChangTing/Code/apollo_test/control-lj/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Linking CXX executable bin/LonControllerTest"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/LonControllerTest.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

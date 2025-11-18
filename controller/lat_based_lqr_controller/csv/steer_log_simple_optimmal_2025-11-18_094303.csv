@@ -1,0 +1,2 @@
+current_lateral_error,current_ref_heading,current_heading,current_heading_error,heading_error_rate,lateral_error_rate,current_curvature,steer_angle,steer_angle_feedforward,steer_angle_lateral_contribution,steer_angle_lateral_rate_contribution,steer_angle_heading_contribution,steer_angle_heading_rate_contribution,steer_angle_feedback,steering_position,v
+1.309373,-1.812661,-1.848074,-0.035413,0.004455,-0.000000,-0.002373,-0.120317,-1.277801,-1.011914,0.000000,0.408755,-0.000034,-0.603194,1.021277,0.000000

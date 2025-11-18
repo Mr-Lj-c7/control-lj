@@ -6,7 +6,7 @@
 			[
 				{
 					"build" : ".",
-					"jsonFile" : "directory-.-f5ebdc15457944623624.json",
+					"jsonFile" : "directory-.-Release-f5ebdc15457944623624.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.5"
@@ -20,7 +20,7 @@
 					]
 				}
 			],
-			"name" : "",
+			"name" : "Release",
 			"projects" : 
 			[
 				{
@@ -41,14 +41,14 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "LatControllerTest::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-LatControllerTest-da3529f2e33390f88963.json",
+					"jsonFile" : "target-LatControllerTest-Release-62fb0d22fee340888e3d.json",
 					"name" : "LatControllerTest",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "LonControllerTest::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-LonControllerTest-894733e6957868a59858.json",
+					"jsonFile" : "target-LonControllerTest-Release-6de12e83797f2f7d67b0.json",
 					"name" : "LonControllerTest",
 					"projectIndex" : 0
 				}

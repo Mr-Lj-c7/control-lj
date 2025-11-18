@@ -69,6 +69,7 @@
         "cassert": "cpp",
         "dense": "cpp",
         "core": "cpp",
-        "variant": "cpp"
+        "variant": "cpp",
+        "eigen": "cpp"
     }
 }

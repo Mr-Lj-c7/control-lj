@@ -11,6 +11,7 @@
 #include "common_msg/basic_msgs/pnc_point_msg.h"
 #include "common_msg/planning_msgs/planning_msg.h"
 #include "control_component/controller_task_base/common/dependency_injector.h"
+#include "common/configs/config_gflags.h"
 
 
 namespace control {
@@ -22,6 +23,8 @@ public:
       const common_msg::ADCTrajectory *planning_published_trajectory);
     ~TrajectoryAnalyzer() = default;
 
+    // 轨迹编号
+    unsigned int seq_num() {return seq_num_;}
     // 基于位置距离寻找最近点
     common_msg::TrajectoryPoint QueryNearestPointByPosition(
       const double x, const double y);
@@ -51,11 +54,15 @@ public:
       double *ptr_s, double *ptr_s_dot,
       double *ptr_d,
       double *ptr_d_dot) const;
+    void TrajectoryTransformToCOM(const double rear_to_com_distance);
+    common::Vec2d ComputeCOMPosition(
+      const double rear_to_com_distance,
+      const common_msg::PathPoint &path_point) const;
 
 protected:
     std::vector<common_msg::TrajectoryPoint> trajectory_points_;
     double header_time_ = 0.0;
-    bool FLAGS_query_forward_time_point_only = false;
+    // bool FLAGS_query_forward_time_point_only = false;
     unsigned int seq_num_ = 0;
 
 };

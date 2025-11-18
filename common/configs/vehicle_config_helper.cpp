@@ -5,7 +5,7 @@ namespace common {
 
 common_msg::VehicleConfig VehicleConfigHelper::vehicle_config_;
 bool VehicleConfigHelper::is_init_ = false;
-const std::string VehicleConfigHelper::FLAGS_vehicle_config_path = "common/data/vehicle_param.json";
+// const std::string VehicleConfigHelper::FLAGS_vehicle_config_path = "common/data/vehicle_param.json";
 
 void VehicleConfigHelper::Init() { Init(FLAGS_vehicle_config_path); }
 
@@ -20,13 +20,15 @@ void VehicleConfigHelper::Init(const std::string &config_file) {
     common_msg::VehicleConfig params;
     std::ifstream file(config_file);
     if (!file.is_open()) {
-        std::cerr << "Failed to open file: " << config_file << std::endl;
+        std::cerr << "[VehicleConfigHelper]:Failed to open file: " 
+          << config_file << std::endl;
         return;
     }
     Json::Value root_;
     Json::Reader reader_;
     if (!reader_.parse(file, root_)) {
-        std::cerr << "Failed to parse JSON file: " << config_file << std::endl;
+        std::cerr << "[VehicleConfigHelper]:Failed to parse JSON file: " 
+        << config_file << std::endl;
         return;
     }
     if (root_.isMember("vehicle_param")) {
@@ -111,10 +113,12 @@ void VehicleConfigHelper::GetVehicleParams(const common_msg::VehicleConfig &vehi
         vehicle_config.vehicle_param.width  != 0.0 && 
         vehicle_config.vehicle_param.height != 0.0) {
             vehicle_config_ = vehicle_config;
-            std::cerr << "Vehicle Params Init success!" << std::endl;
+            std::cerr << "[VehicleConfigHelper]:Vehicle Params Init success!" 
+              << std::endl;
             return;
     } else {
-        std::cerr << "Vehicle Params Init failed!" << std::endl;
+        std::cerr << "[VehicleConfigHelper]:Vehicle Params Init failed!" 
+          << std::endl;
         return;
     }
 }
@@ -126,6 +130,7 @@ const common_msg::VehicleConfig &VehicleConfigHelper::GetConfig() {
   return vehicle_config_;
 }
 
+// 计算最小安全转弯半径
 double VehicleConfigHelper::MinSafeTurnRadius() const { 
     const auto &param_ = vehicle_config_;
     double lat_edge_to_center = std::max(param_.vehicle_param.left_edge_to_center, 

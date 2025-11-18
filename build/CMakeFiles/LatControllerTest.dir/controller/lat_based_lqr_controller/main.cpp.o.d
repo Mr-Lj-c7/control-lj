@@ -62,7 +62,7 @@ CMakeFiles/LatControllerTest.dir/controller/lat_based_lqr_controller/main.cpp.o:
  /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
  /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
- /usr/include/c++/9/cstdint \
+ /usr/include/x86_64-linux-gnu/bits/wchar2.h /usr/include/c++/9/cstdint \
  /usr/lib/gcc/x86_64-linux-gnu/9/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/types.h \
  /usr/include/x86_64-linux-gnu/bits/timesize.h \
@@ -118,7 +118,10 @@ CMakeFiles/LatControllerTest.dir/controller/lat_based_lqr_controller/main.cpp.o:
  /usr/include/x86_64-linux-gnu/bits/select.h \
  /usr/include/x86_64-linux-gnu/bits/types/sigset_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h \
- /usr/include/alloca.h /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
+ /usr/include/x86_64-linux-gnu/bits/select2.h /usr/include/alloca.h \
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h \
+ /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
+ /usr/include/x86_64-linux-gnu/bits/stdlib.h \
  /usr/include/c++/9/bits/std_abs.h /usr/include/c++/9/cstdio \
  /usr/include/stdio.h /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h \
@@ -126,9 +129,10 @@ CMakeFiles/LatControllerTest.dir/controller/lat_based_lqr_controller/main.cpp.o:
  /usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
  /usr/include/x86_64-linux-gnu/bits/sys_errlist.h \
- /usr/include/c++/9/cerrno /usr/include/errno.h \
- /usr/include/x86_64-linux-gnu/bits/errno.h /usr/include/linux/errno.h \
- /usr/include/x86_64-linux-gnu/asm/errno.h \
+ /usr/include/x86_64-linux-gnu/bits/stdio.h \
+ /usr/include/x86_64-linux-gnu/bits/stdio2.h /usr/include/c++/9/cerrno \
+ /usr/include/errno.h /usr/include/x86_64-linux-gnu/bits/errno.h \
+ /usr/include/linux/errno.h /usr/include/x86_64-linux-gnu/asm/errno.h \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
  /usr/include/x86_64-linux-gnu/bits/types/error_t.h \
  /usr/include/c++/9/bits/basic_string.tcc /usr/include/c++/9/iostream \
@@ -179,6 +183,7 @@ CMakeFiles/LatControllerTest.dir/controller/lat_based_lqr_controller/main.cpp.o:
  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
  /usr/include/x86_64-linux-gnu/bits/mathcalls-narrow.h \
  /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
+ /usr/include/x86_64-linux-gnu/bits/mathinline.h \
  /usr/include/c++/9/bits/specfun.h /usr/include/c++/9/tr1/gamma.tcc \
  /usr/include/c++/9/tr1/special_function_util.h \
  /usr/include/c++/9/tr1/bessel_function.tcc \
@@ -215,55 +220,10 @@ CMakeFiles/LatControllerTest.dir/controller/lat_based_lqr_controller/main.cpp.o:
  /home/user/ChangTing/Code/apollo_test/control-lj/common_msg/localization_msgs/pose_msg.h \
  /home/user/ChangTing/Code/apollo_test/control-lj/common/math/euler_angles_zxy.h \
  /home/user/ChangTing/Code/apollo_test/control-lj/common/filters/math.h \
- /home/user/ChangTing/Code/apollo_test/control-lj/controller/lat_based_lqr_controller/config/lat_base_lqr_controller_conf.h \
- /home/user/ChangTing/Code/apollo_test/control-lj/control_component/config/gain_scheduler_conf.h \
- /home/user/ChangTing/Code/apollo_test/control-lj/control_component/config/leadlag_conf.h \
- /home/user/ChangTing/Code/apollo_test/control-lj/control_component/config/mrac_conf.h \
- /home/user/ChangTing/Code/apollo_test/control-lj/control_component/controller_task_base/common/leadlag_controller.h \
- /home/user/ChangTing/Code/apollo_test/control-lj/common/configs/vehicle_config_helper.h \
- /home/user/ChangTing/Code/apollo_test/control-lj/common_msg/config_msgs/vehicle_config_msg.h \
- /usr/include/c++/9/fstream /usr/include/c++/9/bits/codecvt.h \
- /usr/include/x86_64-linux-gnu/c++/9/bits/basic_file.h \
- /usr/include/x86_64-linux-gnu/c++/9/bits/c++io.h \
- /usr/include/c++/9/bits/fstream.tcc \
- /home/user/ChangTing/Code/apollo_test/control-lj/third_libs/json/include/json.h \
- /home/user/ChangTing/Code/apollo_test/control-lj/third_libs/json/include/config.h \
- /usr/include/c++/9/cstddef /usr/include/c++/9/memory \
- /usr/include/c++/9/bits/stl_raw_storage_iter.h \
- /usr/include/c++/9/ext/concurrence.h \
- /usr/include/c++/9/bits/unique_ptr.h \
- /usr/include/c++/9/bits/shared_ptr.h \
- /usr/include/c++/9/bits/shared_ptr_base.h \
- /usr/include/c++/9/bits/allocated_ptr.h \
- /usr/include/c++/9/bits/shared_ptr_atomic.h \
- /usr/include/c++/9/bits/atomic_base.h \
- /usr/include/c++/9/bits/atomic_lockfree_defines.h \
- /usr/include/c++/9/backward/auto_ptr.h \
- /usr/include/c++/9/pstl/glue_memory_defs.h /usr/include/c++/9/sstream \
- /usr/include/c++/9/bits/sstream.tcc \
- /home/user/ChangTing/Code/apollo_test/control-lj/third_libs/json/include/allocator.h \
- /usr/include/c++/9/cstring /usr/include/string.h /usr/include/strings.h \
- /home/user/ChangTing/Code/apollo_test/control-lj/third_libs/json/include/version.h \
- /home/user/ChangTing/Code/apollo_test/control-lj/third_libs/json/include/json_features.h \
- /home/user/ChangTing/Code/apollo_test/control-lj/third_libs/json/include/forwards.h \
- /home/user/ChangTing/Code/apollo_test/control-lj/third_libs/json/include/reader.h \
- /home/user/ChangTing/Code/apollo_test/control-lj/third_libs/json/include/value.h \
- /usr/include/c++/9/map /usr/include/c++/9/bits/stl_tree.h \
- /usr/include/c++/9/bits/stl_map.h /usr/include/c++/9/bits/stl_multimap.h \
- /usr/include/c++/9/deque /usr/include/c++/9/bits/stl_deque.h \
- /usr/include/c++/9/bits/deque.tcc /usr/include/c++/9/stack \
- /usr/include/c++/9/bits/stl_stack.h \
- /home/user/ChangTing/Code/apollo_test/control-lj/third_libs/json/include/writer.h \
- /home/user/ChangTing/Code/apollo_test/control-lj/common_msg/control_msgs/control_cmd_msg.h \
- /home/user/ChangTing/Code/apollo_test/control-lj/common_msg/control_msgs/pad_msg.h \
- /home/user/ChangTing/Code/apollo_test/control-lj/common/filters/mean_filter.h \
- /home/user/ChangTing/Code/apollo_test/control-lj/common/filters/digital_filter.h \
- /home/user/ChangTing/Code/apollo_test/control-lj/common/filters/digital_filter_coefficients.h \
- /home/user/ChangTing/Code/apollo_test/control-lj/common/math/interpolation_1d.h \
- /home/user/ChangTing/Code/apollo_test/control-lj/common/math/bspline_1d.h \
- /home/user/ChangTing/Code/apollo_test/control-lj/common/math/linear_quadratic_regulator.h \
- /usr/include/eigen3/Eigen/Eigen /usr/include/eigen3/Eigen/Dense \
- /usr/include/eigen3/Eigen/Core \
+ /home/user/ChangTing/Code/apollo_test/control-lj/common/math/vec2d.h \
+ /usr/include/c++/9/sstream /usr/include/c++/9/bits/sstream.tcc \
+ /home/user/ChangTing/Code/apollo_test/control-lj/common/configs/config_gflags.h \
+ /usr/include/eigen3/Eigen/Dense /usr/include/eigen3/Eigen/Core \
  /usr/include/eigen3/Eigen/src/Core/util/DisableStupidWarnings.h \
  /usr/include/eigen3/Eigen/src/Core/util/Macros.h \
  /usr/include/c++/9/complex \
@@ -272,7 +232,11 @@ CMakeFiles/LatControllerTest.dir/controller/lat_based_lqr_controller/main.cpp.o:
  /usr/lib/gcc/x86_64-linux-gnu/9/include/emmintrin.h \
  /usr/lib/gcc/x86_64-linux-gnu/9/include/xmmintrin.h \
  /usr/lib/gcc/x86_64-linux-gnu/9/include/mm_malloc.h \
- /usr/include/c++/9/stdlib.h /usr/include/c++/9/climits \
+ /usr/include/c++/9/stdlib.h /usr/include/c++/9/cstddef \
+ /usr/include/c++/9/cstring /usr/include/string.h /usr/include/strings.h \
+ /usr/include/x86_64-linux-gnu/bits/strings_fortified.h \
+ /usr/include/x86_64-linux-gnu/bits/string_fortified.h \
+ /usr/include/c++/9/climits \
  /usr/lib/gcc/x86_64-linux-gnu/9/include/limits.h \
  /usr/lib/gcc/x86_64-linux-gnu/9/include/syslimits.h \
  /usr/include/limits.h /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
@@ -448,7 +412,10 @@ CMakeFiles/LatControllerTest.dir/controller/lat_based_lqr_controller/main.cpp.o:
  /usr/include/eigen3/Eigen/src/Eigenvalues/GeneralizedEigenSolver.h \
  /usr/include/eigen3/Eigen/src/Eigenvalues/RealQZ.h \
  /usr/include/eigen3/Eigen/src/Eigenvalues/MatrixBaseEigenvalues.h \
+ /usr/include/eigen3/Eigen/Eigen /usr/include/eigen3/Eigen/Dense \
  /usr/include/eigen3/Eigen/Sparse /usr/include/eigen3/Eigen/SparseCore \
+ /usr/include/c++/9/map /usr/include/c++/9/bits/stl_tree.h \
+ /usr/include/c++/9/bits/stl_map.h /usr/include/c++/9/bits/stl_multimap.h \
  /usr/include/eigen3/Eigen/src/SparseCore/SparseUtil.h \
  /usr/include/eigen3/Eigen/src/SparseCore/SparseMatrixBase.h \
  /usr/include/eigen3/Eigen/src/plugins/CommonCwiseUnaryOps.h \
@@ -523,11 +490,62 @@ CMakeFiles/LatControllerTest.dir/controller/lat_based_lqr_controller/main.cpp.o:
  /usr/include/eigen3/Eigen/src/IterativeLinearSolvers/IncompleteLUT.h \
  /usr/include/eigen3/Eigen/src/IterativeLinearSolvers/IncompleteCholesky.h \
  /usr/include/c++/9/list /usr/include/c++/9/bits/stl_list.h \
- /usr/include/c++/9/bits/list.tcc /usr/include/eigen3/Eigen/Core \
- /usr/include/eigen3/Eigen/Dense /usr/include/c++/9/chrono \
- /usr/include/c++/9/ratio /usr/include/c++/9/ctime \
- /usr/include/c++/9/bits/parse_numbers.h /usr/include/c++/9/iomanip \
- /usr/include/c++/9/locale /usr/include/c++/9/bits/locale_facets_nonio.h \
+ /usr/include/c++/9/bits/allocated_ptr.h /usr/include/c++/9/bits/list.tcc \
+ /usr/include/eigen3/Eigen/Core \
+ /home/user/ChangTing/Code/apollo_test/control-lj/common_msg/control_msgs/control_cmd_msg.h \
+ /home/user/ChangTing/Code/apollo_test/control-lj/common_msg/control_msgs/pad_msg.h \
+ /home/user/ChangTing/Code/apollo_test/control-lj/controller/lat_based_lqr_controller/config/lat_base_lqr_controller_conf.h \
+ /home/user/ChangTing/Code/apollo_test/control-lj/control_component/config/gain_scheduler_conf.h \
+ /home/user/ChangTing/Code/apollo_test/control-lj/control_component/config/leadlag_conf.h \
+ /home/user/ChangTing/Code/apollo_test/control-lj/control_component/config/mrac_conf.h \
+ /home/user/ChangTing/Code/apollo_test/control-lj/control_component/controller_task_base/common/leadlag_controller.h \
+ /home/user/ChangTing/Code/apollo_test/control-lj/common/configs/vehicle_config_helper.h \
+ /home/user/ChangTing/Code/apollo_test/control-lj/common_msg/config_msgs/vehicle_config_msg.h \
+ /home/user/ChangTing/Code/apollo_test/control-lj/common/configs/config_gflags.h \
+ /usr/include/c++/9/fstream /usr/include/c++/9/bits/codecvt.h \
+ /usr/include/x86_64-linux-gnu/c++/9/bits/basic_file.h \
+ /usr/include/x86_64-linux-gnu/c++/9/bits/c++io.h \
+ /usr/include/c++/9/bits/fstream.tcc \
+ /home/user/ChangTing/Code/apollo_test/control-lj/third_libs/json/include/json.h \
+ /home/user/ChangTing/Code/apollo_test/control-lj/third_libs/json/include/config.h \
+ /usr/include/c++/9/memory /usr/include/c++/9/bits/stl_raw_storage_iter.h \
+ /usr/include/c++/9/ext/concurrence.h \
+ /usr/include/c++/9/bits/unique_ptr.h \
+ /usr/include/c++/9/bits/shared_ptr.h \
+ /usr/include/c++/9/bits/shared_ptr_base.h \
+ /usr/include/c++/9/bits/shared_ptr_atomic.h \
+ /usr/include/c++/9/bits/atomic_base.h \
+ /usr/include/c++/9/bits/atomic_lockfree_defines.h \
+ /usr/include/c++/9/backward/auto_ptr.h \
+ /usr/include/c++/9/pstl/glue_memory_defs.h \
+ /home/user/ChangTing/Code/apollo_test/control-lj/third_libs/json/include/allocator.h \
+ /home/user/ChangTing/Code/apollo_test/control-lj/third_libs/json/include/version.h \
+ /home/user/ChangTing/Code/apollo_test/control-lj/third_libs/json/include/json_features.h \
+ /home/user/ChangTing/Code/apollo_test/control-lj/third_libs/json/include/forwards.h \
+ /home/user/ChangTing/Code/apollo_test/control-lj/third_libs/json/include/reader.h \
+ /home/user/ChangTing/Code/apollo_test/control-lj/third_libs/json/include/value.h \
+ /usr/include/c++/9/deque /usr/include/c++/9/bits/stl_deque.h \
+ /usr/include/c++/9/bits/deque.tcc /usr/include/c++/9/stack \
+ /usr/include/c++/9/bits/stl_stack.h \
+ /home/user/ChangTing/Code/apollo_test/control-lj/third_libs/json/include/writer.h \
+ /home/user/ChangTing/Code/apollo_test/control-lj/common/filters/mean_filter.h \
+ /home/user/ChangTing/Code/apollo_test/control-lj/common/filters/digital_filter.h \
+ /home/user/ChangTing/Code/apollo_test/control-lj/common/filters/digital_filter_coefficients.h \
+ /home/user/ChangTing/Code/apollo_test/control-lj/common/math/interpolation_1d.h \
+ /home/user/ChangTing/Code/apollo_test/control-lj/common/math/bspline_1d.h \
+ /usr/include/eigen3/unsupported/Eigen/Splines \
+ /usr/include/eigen3/unsupported/Eigen/src/Splines/SplineFwd.h \
+ /usr/include/eigen3/unsupported/Eigen/src/Splines/Spline.h \
+ /usr/include/eigen3/unsupported/Eigen/src/Splines/SplineFwd.h \
+ /usr/include/eigen3/unsupported/Eigen/src/Splines/SplineFitting.h \
+ /usr/include/c++/9/numeric /usr/include/c++/9/bits/stl_numeric.h \
+ /usr/include/c++/9/pstl/glue_numeric_defs.h /usr/include/eigen3/Eigen/LU \
+ /usr/include/eigen3/Eigen/QR \
+ /home/user/ChangTing/Code/apollo_test/control-lj/common/math/linear_quadratic_regulator.h \
+ /usr/include/c++/9/chrono /usr/include/c++/9/ratio \
+ /usr/include/c++/9/ctime /usr/include/c++/9/bits/parse_numbers.h \
+ /usr/include/c++/9/iomanip /usr/include/c++/9/locale \
+ /usr/include/c++/9/bits/locale_facets_nonio.h \
  /usr/include/x86_64-linux-gnu/c++/9/bits/time_members.h \
  /usr/include/x86_64-linux-gnu/c++/9/bits/messages_members.h \
  /usr/include/libintl.h /usr/include/c++/9/bits/locale_facets_nonio.tcc \

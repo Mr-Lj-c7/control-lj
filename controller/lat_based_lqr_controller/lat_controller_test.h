@@ -1,20 +1,21 @@
 #ifndef LAT_CONTROLLER_TEST_H
 #define LAT_CONTROLLER_TEST_H
 // control
-#include "control_component/controller_task_base/common/trajectory_analyzer.h"
-#include "control_component/controller_task_base/common/dependency_injector.h"
-#include "controller/lat_based_lqr_controller/config/lat_base_lqr_controller_conf.h"
-#include "control_component/controller_task_base/common/leadlag_controller.h"
-#include "common/configs/vehicle_config_helper.h"
-#include "common_msg/chassis_msgs/chassis_msg.h"
-#include "common_msg/control_msgs/control_cmd_msg.h"
-#include "common_msg/config_msgs/vehicle_config_msg.h"
-#include "common/filters/mean_filter.h"
-#include "common/filters/digital_filter.h"
-#include "common/filters/digital_filter_coefficients.h"
-#include "common/filters/math.h"
-#include "common/math/interpolation_1d.h"
-#include "common/math/linear_quadratic_regulator.h"
+#include "control_component/controller_task_base/common/trajectory_analyzer.h"        // 规划路径处理（坐标转换）
+#include "control_component/controller_task_base/common/dependency_injector.h"        // 关联各模块数据
+#include "controller/lat_based_lqr_controller/config/lat_base_lqr_controller_conf.h"  // 横向LQR控制器参数
+#include "control_component/controller_task_base/common/leadlag_controller.h"         // 超前/滞后补偿控制器
+#include "common/configs/vehicle_config_helper.h"        // 车辆参数配置
+#include "common/configs/config_gflags.h"                // 全局配置参数
+#include "common_msg/chassis_msgs/chassis_msg.h"         // 底盘消息
+#include "common_msg/control_msgs/control_cmd_msg.h"     // 控制命令消息
+#include "common_msg/config_msgs/vehicle_config_msg.h"   // 车辆参数
+#include "common/filters/mean_filter.h"                  // 均值滤波器
+#include "common/filters/digital_filter.h"               // 低阶二通滤波器
+#include "common/filters/digital_filter_coefficients.h"  // 滤波器系数计算
+#include "common/filters/math.h"                         // 数据处理方法
+#include "common/math/interpolation_1d.h"                // 一维插值器
+#include "common/math/linear_quadratic_regulator.h"      // LQR求解器
 // C++ 17
 #include <chrono>
 #include <memory>
@@ -36,6 +37,7 @@ public:
 
     double GetSystemTimeSeconds() const;
 
+    // 设置依赖注入器（已弃用）
     void SetInjector(std::shared_ptr<DependencyInjector> injector) {
         injector_ = injector;
     }
@@ -52,7 +54,7 @@ public:
     bool ComputeControlCommand(
         const common_msg::LocalizationEstimate *localization,
         const common_msg::Chassis *chassis, 
-        const common_msg::ADCTrajectory *trajectory,
+        const common_msg::ADCTrajectory *planning_published_trajectory,
         common_msg::ControlCommand *cmd);
     
 protected:
@@ -95,7 +97,7 @@ protected:
                             const common_msg::Chassis *chassis);
 protected:
     // 日志
-    bool FLAGS_enable_csv_debug = true;
+    // bool FLAGS_enable_csv_debug = true;
     std::ofstream steer_log_file_;
     const std::string name_;
 
@@ -123,8 +125,8 @@ protected:
 
     // 如果启用，实现将车辆当前时间向前加0.8s在规划轨迹上的对应点作目标点，默认关闭
     double query_relative_time_;
-    bool FLAGS_use_navigation_mode = false;
-    bool FLAGS_reverse_heading_control = false;
+    // bool FLAGS_use_navigation_mode = false;
+    // bool FLAGS_reverse_heading_control = false;
 
     // 数字滤波器
     common::DigitalFilter digital_filter_;
@@ -138,7 +140,7 @@ protected:
 
     // LeadlagController超前/滞后控制器
     bool enable_leadlag_ = false;
-    common::LeadLagController leadlag_controller_;
+    common::LeadlagController leadlag_controller_;
 
     // MracController 自适应控制器，适应不同转向机（暂不考虑）
     bool enable_mrac_ = false;
@@ -201,12 +203,27 @@ protected:
    // 上一时刻的参考点航向角加速度
    double previous_ref_heading_acceleration_ = 0.0;
 
+    // 上一时刻方向盘控制指令
+    double pre_steer_angle_ = 0.0;
+    // 上一时刻方向盘实际转角
+    double pre_steering_position_ = 0.0;
+
+   // 导航模式下的车辆位置转换
+   // 当前轨迹时间戳
+   double current_trajectory_timestamp_ = -1.0;
+   double init_vehicle_x_ = 0.0;
+   double init_vehicle_y_ = 0.0;
+   double init_vehicle_heading_ = 0.0;
+
+   // 车辆当前航向角
+   double driving_orientation_ = 0.0;
+
    // 获取车辆状态信息指针对象
    std::shared_ptr<DependencyInjector> injector_;
    
 private:
    const std::string lat_based_lqr_controller_conf_path 
-       = "controller/lat_based_lqr_controller/conf/controller_conf.json";
+       = "../../controller/lat_based_lqr_controller/config/controller_conf.json";
 };
 } // control
 

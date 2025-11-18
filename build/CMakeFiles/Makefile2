@@ -83,12 +83,12 @@ clean: CMakeFiles/LonControllerTest.dir/clean
 CMakeFiles/LatControllerTest.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/LatControllerTest.dir/build.make CMakeFiles/LatControllerTest.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/LatControllerTest.dir/build.make CMakeFiles/LatControllerTest.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/user/ChangTing/Code/apollo_test/control-lj/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16 "Built target LatControllerTest"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/user/ChangTing/Code/apollo_test/control-lj/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19 "Built target LatControllerTest"
 .PHONY : CMakeFiles/LatControllerTest.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/LatControllerTest.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/user/ChangTing/Code/apollo_test/control-lj/build/CMakeFiles 16
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/user/ChangTing/Code/apollo_test/control-lj/build/CMakeFiles 19
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/LatControllerTest.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/user/ChangTing/Code/apollo_test/control-lj/build/CMakeFiles 0
 .PHONY : CMakeFiles/LatControllerTest.dir/rule
@@ -109,12 +109,12 @@ CMakeFiles/LatControllerTest.dir/clean:
 CMakeFiles/LonControllerTest.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/LonControllerTest.dir/build.make CMakeFiles/LonControllerTest.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/LonControllerTest.dir/build.make CMakeFiles/LonControllerTest.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/user/ChangTing/Code/apollo_test/control-lj/build/CMakeFiles --progress-num=17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32 "Built target LonControllerTest"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/user/ChangTing/Code/apollo_test/control-lj/build/CMakeFiles --progress-num=20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39 "Built target LonControllerTest"
 .PHONY : CMakeFiles/LonControllerTest.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/LonControllerTest.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/user/ChangTing/Code/apollo_test/control-lj/build/CMakeFiles 16
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/user/ChangTing/Code/apollo_test/control-lj/build/CMakeFiles 20
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/LonControllerTest.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/user/ChangTing/Code/apollo_test/control-lj/build/CMakeFiles 0
 .PHONY : CMakeFiles/LonControllerTest.dir/rule

@@ -90,6 +90,21 @@ T lerp(const T &x0, const double t0, const T &x1, const double t1,
   return x;
 }
 
+// 值取范围限制
+template <typename T>
+T Clamp(const T value, T bound1, T bound2) {
+  if (bound1 > bound2) {
+    std::swap(bound1, bound2);
+  }
+
+  if (value < bound1) {
+    return bound1;
+  } else if (value > bound2) {
+    return bound2;
+  }
+  return value;
+}
+
 }  // namespace control
 }  // namespace common
 

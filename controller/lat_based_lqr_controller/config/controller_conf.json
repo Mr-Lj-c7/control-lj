@@ -22,7 +22,7 @@
     "mean_filter_window_size": 10,
     "max_iteration": 150,
     "max_lateral_acceleration": 5.0,
-    "enable_reverse_leadlag_compensation": true,
+    "enable_reverse_leadlag_compensation": false,
     "enable_steer_mrac_control": false,
     "enable_look_ahead_back_control": true,
     "lookahead_sation": 1.4224,
@@ -42,7 +42,7 @@
     "enable_navigation_mode_error_filter": false,
     "reverse_feedback_ratio": 1.4,
     "reverse_use_dynamic_model": false,
-    "minimum_speed_protection": 1.0,
+    "minimum_speed_protection": 0.1,
     "lat_err_gain_scheduler":{
         "scheduler_0":{
             "speed": 4.0,

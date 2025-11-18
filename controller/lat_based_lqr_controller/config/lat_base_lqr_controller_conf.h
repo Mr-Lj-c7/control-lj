@@ -22,13 +22,13 @@ typedef struct LAT_BASE_LQR_CONTROLLER_CONF {
     // LQR求解器参数
     double eps = 0.01;               // LQR求解器收敛阈值
     // LQR控制器Q矩阵对角线元素
-    std::vector<double> matrix_q{0.0, 0.0, 0.0, 0.0};         
+    std::vector<double> matrix_q{};  // 1*4       
     double matrix_q_0 = 0.05;          
     double matrix_q_1 = 0.0;          
     double matrix_q_2 = 1.0;          
     double matrix_q_3 = 0.0;       
     // 倒车LQR控制器Q矩阵对角线元素  
-    std::vector<double> reverse_matrix_q{0.0, 0.0, 0.0, 0.0};  
+    std::vector<double> reverse_matrix_q{};  
     double reverse_matrix_q_0 = 0.05;  
     double reverse_matrix_q_1 = 0.0;  
     double reverse_matrix_q_2 = 1.0;  

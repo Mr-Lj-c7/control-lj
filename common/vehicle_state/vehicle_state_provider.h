@@ -6,6 +6,11 @@
 #include "common_msg/chassis_msgs/chassis_msg.h"
 #include "common_msg/localization_msgs/localization_msg.h"
 #include "common/math/euler_angles_zxy.h"
+#include "common/math/vec2d.h"
+#include "common/configs/config_gflags.h"
+#include <eigen3/Eigen/Dense>
+#include <eigen3/Eigen/Eigen>
+#include <eigen3/Eigen/Core>
 
 namespace control {
 namespace common {
@@ -46,6 +51,9 @@ public:
     // 获取完整车辆状态
     const common_msg::VehicleState& vehicle_state() const;
 
+    // 根据后轮到质心距离，计算车辆的质心位置COM
+    common::Vec2d ComputeCOMPosition(const double rear_to_com_distance) const;
+
 private:
     // 构建除线速度以外的车辆状态
     bool ConstructExceptLinearVelocity(
@@ -56,9 +64,9 @@ private:
     common_msg::LocalizationEstimate original_localization_;
 
     // 是否启用导航模式
-    bool FLAGS_use_navigation_mode = false;
-    bool FLAGS_enable_map_reference_unify = false;    // 地图参考系统一致化
-    bool FLAGS_reverse_heading_vehicle_state = false; // 反向航向角（倒车）
+    // bool FLAGS_use_navigation_mode = false;
+    // bool FLAGS_enable_map_reference_unify = false;    // 地图参考系统一致化
+    // bool FLAGS_reverse_heading_vehicle_state = false; // 反向航向角（倒车）
 
 };
 

@@ -12,35 +12,49 @@ namespace common {
             std::cerr << "[Interpolation1D]: input is empty!" << std::endl;
             return false;
         }
-        // B样条插值器初始化
-        bspline_.reset(new BSpline1D());
-        if (!bspline_->Init(xy)) {
-            std::cerr << "[Interpolation1D]: init BSpline1D failed!" << std::endl;
-            return false;
+        auto data(xy);
+        std::sort(data.begin(), data.end());  // 排序
+        Eigen::VectorXd x(data.size());
+        Eigen::VectorXd y(data.size());
+        for (unsigned i = 0; i < data.size(); ++i) {
+            x(i) = data[i].first;
+            y(i) = data[i].second;
         }
-        x_min_ = bspline_->XMin();
-        x_max_ = bspline_->XMax();
-        y_start_ = bspline_->YStart();
-        y_end_ = bspline_->YEnd();
-        
+        x_min_ = data.front().first;
+        x_max_ = data.back().first;
+        y_start_ = data.front().second;
+        y_end_ = data.back().second;
+        spline_.reset(new Eigen::Spline<double, 1>
+            (Eigen::SplineFitting<Eigen::Spline<double, 1>>::Interpolate(
+            y.transpose(), 
+            static_cast<Eigen::DenseIndex>(std::min<size_t>(x.size() - 1, 3)),
+            ScaledValues(x))));
         return true;
     };
 
     double Interpolation1D::Interpolate(double x) const {
-        if (!bspline_) {
-            std::cerr << "[Interpolation1D]: bspline is null!" << std::endl;
-            return NAN;
+        if (x < x_min_) {
+            return y_start_;
         }
-        return bspline_->Interpolate(x);
+        if (x > x_max_) {
+            return y_end_;
+        }
+        return (*spline_)(ScaledValue(x))(0);
     };
 
 
-    double Interpolation1D::ScaleValue(double x) const {
-        if (x_max_ - x_min_ < kDoubleEpsilon) {
+    double Interpolation1D::ScaledValue(double x) const {
+        if (std::fabs(x_max_ - x_min_) < kDoubleEpsilon) {
             return x_min_;
         }
         return (x - x_min_) / (x_max_ - x_min_);
     };
+
+    Eigen::RowVectorXd Interpolation1D::ScaledValues(
+    Eigen::VectorXd const& x_vec) const {
+    return x_vec.unaryExpr([this](double x) { return ScaledValue(x); })
+        .transpose();
+    }
 
 } // control
 } // common

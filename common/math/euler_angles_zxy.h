@@ -154,4 +154,4 @@ using EulerAnglesZXYd = EulerAnglesZXY<double>;
 }  // namespace common
 }  // namespace control
 
-#endif  // EULER_ANGLES_ZXY_STRUCT_H_
+#endif 

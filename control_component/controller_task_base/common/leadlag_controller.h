@@ -17,10 +17,10 @@ namespace common {
    k_n1 = 2*beta*tau+T*beta, k_n0 = T*beta-2*beta*tau
    k_d1 = 2*alpha*tau+T, k_d0 = T-2*alpha*tau
  */ 
-class LeadLagController { 
+class LeadlagController { 
 public:
-    LeadLagController() = default;
-    ~LeadLagController() = default;
+    LeadlagController() = default;
+    ~LeadlagController() = default;
     /**
      * @brief 加载leadlag控制器参数并初始化
      * @param[in] leadlag_conf leadlag控制器参数

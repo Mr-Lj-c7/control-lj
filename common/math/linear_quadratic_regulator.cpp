@@ -38,20 +38,23 @@ void SolveLQRProblem(const Matrix &A, const Matrix &B,
     double diff = std::numeric_limits<double>::max();  // 最大double数值
     // Raccatic 方程求解
     while (num_iteration++ < max_num_iterations && diff > tolerance) {
-        Matrix P_next = (AT * P * A) - (AT * P * B + M) * 
-                          (R + BT * P * BT).inverse() * 
-                          (BT * P * AT + M) + Q;
-        diff = std::abs((P_next - P).maxCoeff());  // 矩阵元素最大值
+        Matrix P_next = (AT * P * A) 
+                        - (AT * P * B + M) 
+                        * (R + BT * P * B).inverse() 
+                        * (BT * P * A + MT) + Q;
+        diff = std::fabs((P_next - P).maxCoeff());  // 矩阵元素最大值
         P = P_next;
     }
     if (num_iteration >= max_num_iterations) {
-        std::cerr << "[SolveLQRProblem]: LQR Solver cannot converge to a solution, \
-         last consecutive result diff is: " << diff << std::endl;
+        std::cerr << 
+          "[SolveLQRProblem]: LQR Solver cannot converge to a solution, last consecutive result diff is: " 
+                  << diff << std::endl;
     } else {
-        std::cerr << "[SolveLQRProblem]: LQR Solver converged to a solution, \
-         last consecutive result diff is: " << diff << std::endl;
+        std::cerr << 
+          "[SolveLQRProblem]: LQR Solver converged to a solution, last consecutive result diff is: " 
+                 << diff << std::endl;
     }
-    *ptr_K = (R + BT * P * BT).inverse() * (BT * P * A + M);
+    *ptr_K = (R + BT * P * B).inverse() * (BT * P * A + MT);
     *iterate_num = num_iteration;
     *result_diff = diff;
 };

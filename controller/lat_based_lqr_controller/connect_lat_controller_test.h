@@ -12,11 +12,13 @@ using control::common::VehicleStateProvider;
 
 #define STATUS nullptr
 #define relativate_time_ 0
+#define LOG_DEBUG
 
 namespace control{
 class ConnectLatControllerTest : public LatControllerTest {
 public:
 ConnectLatControllerTest() {
+    // LatControllerTest();
     timestamp_ = GetSystemTimeSeconds();
 }
 ~ConnectLatControllerTest() = default;
@@ -47,7 +49,7 @@ protected:
     double tolerance = 1e-3;
     double timestamp_ = 0.0;
 
-    std::shared_ptr<DependencyInjector> injector_;
+    // std::shared_ptr<DependencyInjector> injector_;
     const char data_path_[100] = "../../controller/lat_based_lqr_controller/lateral_controller_test/";
 };
 

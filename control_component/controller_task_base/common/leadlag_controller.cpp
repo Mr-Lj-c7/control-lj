@@ -19,7 +19,7 @@ namespace common {
      * @param[in] leadlag_conf leadlag控制器参数
      * @param[in] dt 车辆控制系统控制周期
      */
-    void LeadLagController::Init(const common_msg::LeadlagConf &leadlag_conf, 
+    void LeadlagController::Init(const common_msg::LeadlagConf &leadlag_conf, 
       const double dt) {
         previous_output_ = 0.0;
         previous_innerstate_ = 0.0;
@@ -38,7 +38,7 @@ namespace common {
      * @brief 设置leadlag控制器参数
      * @param[in] leadlag_conf leadlag控制器参数
      */
-    void LeadLagController::SetLeadlag(const common_msg::LeadlagConf 
+    void LeadlagController::SetLeadlag(const common_msg::LeadlagConf 
       &leadlag_conf) {
         alpha_ = leadlag_conf.alpha;
         beta_ = leadlag_conf.beta;
@@ -50,9 +50,9 @@ namespace common {
      * @brief 双线性变换离散化系统
      * @param[in] dt 车辆控制系统控制周期
      */
-    void LeadLagController::TransformC2d(const double dt) {
+    void LeadlagController::TransformC2d(const double dt) {
       if (dt <= 0.0 ) {
-        std::cerr << "dt <= 0, continuous-discrete transformation failed, dt: "
+        std::cerr << "[LeadlagController]:dt <= 0, continuous-discrete transformation failed, dt: "
                   << dt << std::endl;
         transformc2d_enable_ = false;
       } else {
@@ -67,7 +67,7 @@ namespace common {
         kd1_ = 2 * a1 + Ts_ * a0;
         // 系统稳定性判定，极点|kd0/kd1| < 1
         if (kd1_ <= 0.0) {
-          std::cerr << "kd1 <= 0, continuous-discrete transformation failed, "
+          std::cerr << "[LeadlagController]:kd1 <= 0, continuous-discrete transformation failed, "
                     << "kd1: " << kd1_ << std::endl;
           transformc2d_enable_ = false;
           return;
@@ -82,7 +82,7 @@ namespace common {
     /**
      * @brief 重置leadlag控制器
      */
-    void LeadLagController::Reset() {
+    void LeadlagController::Reset() {
       previous_innerstate_ = 0.0;
       previous_output_ = 0.0;
       innerstate_ = 0.0;
@@ -97,16 +97,16 @@ namespace common {
      * @param[out] control_value  控制补偿值
      * y(k) = k_n0*x(k) + k_n1*x(k+1)
      */
-    double LeadLagController::Control(const double error, 
+    double LeadlagController::Control(const double error, 
       const double dt) {
         if (!transformc2d_enable_) { // 视为统一比例调节器
           TransformC2d(dt); 
-          std::cerr << "C2d transform failed; will work as a unity compensator, dt:" 
+          std::cerr << "[LeadlagController]:C2d transform failed; will work as a unity compensator, dt:" 
                     << dt <<std::endl;
           return error;
         }
         if (dt <= 0.0) {
-          std::cerr << "dt <= 0, will use the last uotput, dt: "
+          std::cerr << "[LeadlagController]:dt <= 0, will use the last uotput, dt: "
                   << dt << std::endl;
           return previous_output_;
         }
@@ -138,7 +138,7 @@ namespace common {
      * > saturate_up_limit == 1 
      * < saturate_down_limit == -1
      */
-    int LeadLagController::InnerstateSaturationStatus() const {
+    int LeadlagController::InnerstateSaturationStatus() const {
       return innerstate_saturation_status_;
     }
 

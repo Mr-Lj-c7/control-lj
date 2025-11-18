@@ -51,7 +51,8 @@ void LpFirstOrderCoefficients(const double ts,
     std::vector<double> *numerators) {
     // 参数检查
     if (ts <=0.0 || settling_time < 0.0 || dead_time < 0.0) {
-        std::cerr << "time cannot be negative" << std::endl;
+        std::cerr << "[LpFirstOrderCoefficients]:time cannot be negative" 
+          << std::endl;
         return;
     }
     // 延迟采样点数

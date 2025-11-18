@@ -11,16 +11,12 @@ using TimedValue = std::pair<uint8, double>;
 const uint8 kMaxWindowSize = std::numeric_limits<uint8>::max() / 2;
 
 MF::MeanFilter(const uint8 window_size) : window_size_(window_size) {
-  // CHECK_GT(window_size_, 0);
-  // CHECK_LE(window_size_, kMaxWindowSize);
   if (!(window_size_ > 0)) {
-    throw std::invalid_argument("windows size must be greater than zero");
+    throw std::runtime_error("[MF]:windows size must be greater than zero");
   }
   if (!(window_size_ <= kMaxWindowSize)) {
-    throw std::invalid_argument("Window size exceeds maximum allowed size ");
+    throw std::runtime_error("[MF]:Window size exceeds maximum allowed size ");
   }
-  
-  
   initialized_ = true;
 }
 
@@ -41,15 +37,23 @@ double MF::GetMax() const {
 }
 
 double MF::Update(const double measurement) {
-  // ACHECK(initialized_);
-  // CHECK_LE(values_.size(), window_size_);
-  // CHECK_LE(min_candidates_.size(), window_size_);
-  // CHECK_LE(max_candidates_.size(), window_size_);
-
-  assert(initialized_ && "MeanFilter not initialized");
-  assert(values_.size() <= window_size_ && "Values size exceeds window size");
-  assert(min_candidates_.size() <= window_size_ && "Min candidates size exceeds window size");
-  assert(max_candidates_.size() <= window_size_ && "Max candidates size exceeds window size");
+  // assert 只能在release模式下使用
+  // assert(initialized_ && "MeanFilter not initialized");
+  // assert(values_.size() <= window_size_ && "Values size exceeds window size");
+  // assert(min_candidates_.size() <= window_size_ && "Min candidates size exceeds window size");
+  // assert(max_candidates_.size() <= window_size_ && "Max candidates size exceeds window size");
+  if (!initialized_) {
+    throw std::runtime_error("[MF]:MeanFilter not initialized");
+  }
+  if (values_.size() > window_size_) {
+    throw std::runtime_error("[MF]:Values size exceeds window size");
+  }
+  if (min_candidates_.size() > window_size_) {
+    throw std::runtime_error("[MF]:Min candidates size exceeds window size");
+  }
+  if (max_candidates_.size() > window_size_) {
+    throw std::runtime_error("[MF]:Max candidates size exceeds window size");
+  }
 
   ++time_;
   time_ %= static_cast<std::uint_fast8_t>(2 * window_size_);
@@ -66,20 +70,17 @@ double MF::Update(const double measurement) {
 }
 
 bool MF::ShouldPopOldestCandidate(const uint8 old_time) const {
-  // if (old_time < window_size_) {
-  //   CHECK_LE(time_, old_time + window_size_);
-  //   return old_time + window_size_ == time_;
-  // } else if (time_ < window_size_) {
-  //   CHECK_GE(old_time, time_ + window_size_);
-  //   return old_time == time_ + window_size_;
-  // } else {
-  //   return false;
-  // }
     if (old_time < window_size_) {
-    assert(time_ <= old_time + window_size_ && "Time constraint violation");
+      if (time_ <= old_time + window_size_) {
+        throw std::runtime_error("[MF]:Time constraint violation");
+      }
+    // assert(time_ <= old_time + window_size_ && "Time constraint violation");
     return old_time + window_size_ == time_;
   } else if (time_ < window_size_) {
-    assert(old_time >= time_ + window_size_ && "Time constraint violation");
+    if (old_time >= time_ + window_size_) {
+      throw std::runtime_error("[MF]:Time constraint violation");
+    }
+    // assert(old_time >= time_ + window_size_ && "Time constraint violation");
     return old_time == time_ + window_size_;
   } else {
     return false;
@@ -87,8 +88,10 @@ bool MF::ShouldPopOldestCandidate(const uint8 old_time) const {
 }
 
 void MF::RemoveEarliest() {
-  // CHECK_EQ(values_.size(), window_size_);
-  assert(values_.size() == window_size_ && "Values size does not match window size");
+  if (!(values_.size() == window_size_)) {
+    throw std::runtime_error("[MF]:Values size does not match window size");
+  }
+  // assert(values_.size() == window_size_ && "Values size does not match window size");
   double removed = values_.front();
   values_.pop_front();
   sum_ -= removed;

@@ -169,7 +169,10 @@ common_msg::PathPoint TrajectoryAnalyzer::FindMinDistancePoint(
 common_msg::PathPoint TrajectoryAnalyzer::QueryMatchedPathPoint(
     const double x, const double y) {
     // 轨迹点不为空
-    assert(trajectory_points_.size() > 0 && "trajectory_points_ is empty");
+    // assert(trajectory_points_.size() > 0 && "trajectory_points_ is empty");
+    if (!trajectory_points_.size()) {
+        std::cerr << "trajectory_points_ is empty" << std::endl;
+    }
     double d_min = PointDistanceSquare(trajectory_points_.front(), x, y);
     size_t index_min = 0;
 
@@ -194,6 +197,34 @@ common_msg::PathPoint TrajectoryAnalyzer::QueryMatchedPathPoint(
     // 插值计算给定点(x,y)最近的位置
     return FindMinDistancePoint(trajectory_points_[index_start],
                               trajectory_points_[index_end], x, y); 
+}
+
+common::Vec2d TrajectoryAnalyzer::ComputeCOMPosition(
+    const double rear_to_com_distance, const common_msg::PathPoint &path_point) const {
+  // Initialize the vector for coordinate transformation of the position
+  // reference point
+  Eigen::Vector3d v;
+  const double cos_heading = std::cos(path_point.theta);
+  const double sin_heading = std::sin(path_point.theta);
+  v << rear_to_com_distance * cos_heading, rear_to_com_distance * sin_heading,
+      0.0;
+  // Original position reference point at center of rear-axis
+  Eigen::Vector3d pos_vec(path_point.x, path_point.y, path_point.z);
+  // Transform original position with vector v
+  Eigen::Vector3d com_pos_3d = v + pos_vec;
+  // Return transfromed x and y
+  return common::Vec2d(com_pos_3d[0], com_pos_3d[1]);
+}
+
+void TrajectoryAnalyzer::TrajectoryTransformToCOM(
+    const double rear_to_com_distance) {
+//   CHECK_GT(trajectory_points_.size(), 0U);
+  for (size_t i = 0; i < trajectory_points_.size(); ++i) {
+    auto com = ComputeCOMPosition(rear_to_com_distance,
+                                  trajectory_points_[i].path_point);
+    trajectory_points_[i].path_point.x = com.x();
+    trajectory_points_[i].path_point.y = com.y();
+  }
 }
     
 } // control

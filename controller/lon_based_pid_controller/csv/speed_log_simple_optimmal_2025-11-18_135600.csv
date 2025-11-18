@@ -1,0 +1,2 @@
+station_reference, station_error, station_error_limited,preview_station_error,speed_reference,speed_error,speed_error_limited,preview_speed_reference,preview_speed_error,preview_acceleration_reference,acceleration_cmd_closeloop,acceleration_cmd,acceleration_lookup,acceleration_lookup_limit,speed_lookup,calibration_value,throttle_cmd,brake_cmd,is_full_stop,
+0.000000,-319.788424,-2.000000,-319.788424,1.622222,1.622222,1.500000,1.622222,1.622222,0.786163,0.000000,0.786163,0.786163,0.000000,0.000000,21.000000,21.000000,0.000000,0

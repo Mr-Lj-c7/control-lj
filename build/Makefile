@@ -142,6 +142,33 @@ LonControllerTest/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/LonControllerTest.dir/build.make CMakeFiles/LonControllerTest.dir/build
 .PHONY : LonControllerTest/fast
 
+common/configs/config_gflags.o: common/configs/config_gflags.cpp.o
+.PHONY : common/configs/config_gflags.o
+
+# target to build an object file
+common/configs/config_gflags.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LatControllerTest.dir/build.make CMakeFiles/LatControllerTest.dir/common/configs/config_gflags.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LonControllerTest.dir/build.make CMakeFiles/LonControllerTest.dir/common/configs/config_gflags.cpp.o
+.PHONY : common/configs/config_gflags.cpp.o
+
+common/configs/config_gflags.i: common/configs/config_gflags.cpp.i
+.PHONY : common/configs/config_gflags.i
+
+# target to preprocess a source file
+common/configs/config_gflags.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LatControllerTest.dir/build.make CMakeFiles/LatControllerTest.dir/common/configs/config_gflags.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LonControllerTest.dir/build.make CMakeFiles/LonControllerTest.dir/common/configs/config_gflags.cpp.i
+.PHONY : common/configs/config_gflags.cpp.i
+
+common/configs/config_gflags.s: common/configs/config_gflags.cpp.s
+.PHONY : common/configs/config_gflags.s
+
+# target to generate assembly for a file
+common/configs/config_gflags.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LatControllerTest.dir/build.make CMakeFiles/LatControllerTest.dir/common/configs/config_gflags.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LonControllerTest.dir/build.make CMakeFiles/LonControllerTest.dir/common/configs/config_gflags.cpp.s
+.PHONY : common/configs/config_gflags.cpp.s
+
 common/configs/vehicle_config_helper.o: common/configs/vehicle_config_helper.cpp.o
 .PHONY : common/configs/vehicle_config_helper.o
 
@@ -385,6 +412,33 @@ common/math/linear_quadratic_regulator.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/LonControllerTest.dir/build.make CMakeFiles/LonControllerTest.dir/common/math/linear_quadratic_regulator.cpp.s
 .PHONY : common/math/linear_quadratic_regulator.cpp.s
 
+common/math/vec2d.o: common/math/vec2d.cpp.o
+.PHONY : common/math/vec2d.o
+
+# target to build an object file
+common/math/vec2d.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LatControllerTest.dir/build.make CMakeFiles/LatControllerTest.dir/common/math/vec2d.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LonControllerTest.dir/build.make CMakeFiles/LonControllerTest.dir/common/math/vec2d.cpp.o
+.PHONY : common/math/vec2d.cpp.o
+
+common/math/vec2d.i: common/math/vec2d.cpp.i
+.PHONY : common/math/vec2d.i
+
+# target to preprocess a source file
+common/math/vec2d.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LatControllerTest.dir/build.make CMakeFiles/LatControllerTest.dir/common/math/vec2d.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LonControllerTest.dir/build.make CMakeFiles/LonControllerTest.dir/common/math/vec2d.cpp.i
+.PHONY : common/math/vec2d.cpp.i
+
+common/math/vec2d.s: common/math/vec2d.cpp.s
+.PHONY : common/math/vec2d.s
+
+# target to generate assembly for a file
+common/math/vec2d.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LatControllerTest.dir/build.make CMakeFiles/LatControllerTest.dir/common/math/vec2d.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LonControllerTest.dir/build.make CMakeFiles/LonControllerTest.dir/common/math/vec2d.cpp.s
+.PHONY : common/math/vec2d.cpp.s
+
 common/vehicle_state/vehicle_state_provider.o: common/vehicle_state/vehicle_state_provider.cpp.o
 .PHONY : common/vehicle_state/vehicle_state_provider.o
 
@@ -438,6 +492,33 @@ control_component/controller_task_base/common/leadlag_controller.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/LatControllerTest.dir/build.make CMakeFiles/LatControllerTest.dir/control_component/controller_task_base/common/leadlag_controller.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/LonControllerTest.dir/build.make CMakeFiles/LonControllerTest.dir/control_component/controller_task_base/common/leadlag_controller.cpp.s
 .PHONY : control_component/controller_task_base/common/leadlag_controller.cpp.s
+
+control_component/controller_task_base/common/pid_controller.o: control_component/controller_task_base/common/pid_controller.cpp.o
+.PHONY : control_component/controller_task_base/common/pid_controller.o
+
+# target to build an object file
+control_component/controller_task_base/common/pid_controller.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LatControllerTest.dir/build.make CMakeFiles/LatControllerTest.dir/control_component/controller_task_base/common/pid_controller.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LonControllerTest.dir/build.make CMakeFiles/LonControllerTest.dir/control_component/controller_task_base/common/pid_controller.cpp.o
+.PHONY : control_component/controller_task_base/common/pid_controller.cpp.o
+
+control_component/controller_task_base/common/pid_controller.i: control_component/controller_task_base/common/pid_controller.cpp.i
+.PHONY : control_component/controller_task_base/common/pid_controller.i
+
+# target to preprocess a source file
+control_component/controller_task_base/common/pid_controller.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LatControllerTest.dir/build.make CMakeFiles/LatControllerTest.dir/control_component/controller_task_base/common/pid_controller.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LonControllerTest.dir/build.make CMakeFiles/LonControllerTest.dir/control_component/controller_task_base/common/pid_controller.cpp.i
+.PHONY : control_component/controller_task_base/common/pid_controller.cpp.i
+
+control_component/controller_task_base/common/pid_controller.s: control_component/controller_task_base/common/pid_controller.cpp.s
+.PHONY : control_component/controller_task_base/common/pid_controller.s
+
+# target to generate assembly for a file
+control_component/controller_task_base/common/pid_controller.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LatControllerTest.dir/build.make CMakeFiles/LatControllerTest.dir/control_component/controller_task_base/common/pid_controller.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LonControllerTest.dir/build.make CMakeFiles/LonControllerTest.dir/control_component/controller_task_base/common/pid_controller.cpp.s
+.PHONY : control_component/controller_task_base/common/pid_controller.cpp.s
 
 control_component/controller_task_base/common/trajectory_analyzer.o: control_component/controller_task_base/common/trajectory_analyzer.cpp.o
 .PHONY : control_component/controller_task_base/common/trajectory_analyzer.o
@@ -610,6 +691,30 @@ controller/lon_based_pid_controller/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/LonControllerTest.dir/build.make CMakeFiles/LonControllerTest.dir/controller/lon_based_pid_controller/main.cpp.s
 .PHONY : controller/lon_based_pid_controller/main.cpp.s
 
+controller/lon_based_pid_controller/util/check_pit.o: controller/lon_based_pid_controller/util/check_pit.cpp.o
+.PHONY : controller/lon_based_pid_controller/util/check_pit.o
+
+# target to build an object file
+controller/lon_based_pid_controller/util/check_pit.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LonControllerTest.dir/build.make CMakeFiles/LonControllerTest.dir/controller/lon_based_pid_controller/util/check_pit.cpp.o
+.PHONY : controller/lon_based_pid_controller/util/check_pit.cpp.o
+
+controller/lon_based_pid_controller/util/check_pit.i: controller/lon_based_pid_controller/util/check_pit.cpp.i
+.PHONY : controller/lon_based_pid_controller/util/check_pit.i
+
+# target to preprocess a source file
+controller/lon_based_pid_controller/util/check_pit.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LonControllerTest.dir/build.make CMakeFiles/LonControllerTest.dir/controller/lon_based_pid_controller/util/check_pit.cpp.i
+.PHONY : controller/lon_based_pid_controller/util/check_pit.cpp.i
+
+controller/lon_based_pid_controller/util/check_pit.s: controller/lon_based_pid_controller/util/check_pit.cpp.s
+.PHONY : controller/lon_based_pid_controller/util/check_pit.s
+
+# target to generate assembly for a file
+controller/lon_based_pid_controller/util/check_pit.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LonControllerTest.dir/build.make CMakeFiles/LonControllerTest.dir/controller/lon_based_pid_controller/util/check_pit.cpp.s
+.PHONY : controller/lon_based_pid_controller/util/check_pit.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -620,6 +725,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... LatControllerTest"
 	@echo "... LonControllerTest"
+	@echo "... common/configs/config_gflags.o"
+	@echo "... common/configs/config_gflags.i"
+	@echo "... common/configs/config_gflags.s"
 	@echo "... common/configs/vehicle_config_helper.o"
 	@echo "... common/configs/vehicle_config_helper.i"
 	@echo "... common/configs/vehicle_config_helper.s"
@@ -647,12 +755,18 @@ help:
 	@echo "... common/math/linear_quadratic_regulator.o"
 	@echo "... common/math/linear_quadratic_regulator.i"
 	@echo "... common/math/linear_quadratic_regulator.s"
+	@echo "... common/math/vec2d.o"
+	@echo "... common/math/vec2d.i"
+	@echo "... common/math/vec2d.s"
 	@echo "... common/vehicle_state/vehicle_state_provider.o"
 	@echo "... common/vehicle_state/vehicle_state_provider.i"
 	@echo "... common/vehicle_state/vehicle_state_provider.s"
 	@echo "... control_component/controller_task_base/common/leadlag_controller.o"
 	@echo "... control_component/controller_task_base/common/leadlag_controller.i"
 	@echo "... control_component/controller_task_base/common/leadlag_controller.s"
+	@echo "... control_component/controller_task_base/common/pid_controller.o"
+	@echo "... control_component/controller_task_base/common/pid_controller.i"
+	@echo "... control_component/controller_task_base/common/pid_controller.s"
 	@echo "... control_component/controller_task_base/common/trajectory_analyzer.o"
 	@echo "... control_component/controller_task_base/common/trajectory_analyzer.i"
 	@echo "... control_component/controller_task_base/common/trajectory_analyzer.s"
@@ -674,6 +788,9 @@ help:
 	@echo "... controller/lon_based_pid_controller/main.o"
 	@echo "... controller/lon_based_pid_controller/main.i"
 	@echo "... controller/lon_based_pid_controller/main.s"
+	@echo "... controller/lon_based_pid_controller/util/check_pit.o"
+	@echo "... controller/lon_based_pid_controller/util/check_pit.i"
+	@echo "... controller/lon_based_pid_controller/util/check_pit.s"
 .PHONY : help
 
 

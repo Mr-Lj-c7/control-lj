@@ -231,6 +231,9 @@ OpenCV4_DIR:PATH=OpenCV4_DIR-NOTFOUND
 //The directory containing a CMake configuration file for OpenCV.
 OpenCV_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/opencv4
 
+//The directory containing a CMake configuration file for eigen3.
+eigen3_DIR:PATH=eigen3_DIR-NOTFOUND
+
 
 ########################
 # INTERNAL cache entries

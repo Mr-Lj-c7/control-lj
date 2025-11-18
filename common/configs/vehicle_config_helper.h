@@ -1,4 +1,5 @@
 # include "common_msg/config_msgs/vehicle_config_msg.h"
+# include "config_gflags.h"
 # include <iostream>
 #include <fstream>
 # include "json.h"
@@ -6,12 +7,13 @@
 namespace control {
 namespace common {
 
+// 车辆参数设置
 class VehicleConfigHelper
 {
 private:
     static bool is_init_;
     static common_msg::VehicleConfig vehicle_config_;  
-    static const std::string FLAGS_vehicle_config_path;
+    // static const std::string FLAGS_vehicle_config_path;
 
 public:
     VehicleConfigHelper() = default;
